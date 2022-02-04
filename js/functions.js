@@ -8,9 +8,10 @@
  * Example
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
-let sayHello =(name)=>{
-    return `Hello, ${name}`
-}
+
+// let sayHello =(name)=>{
+//     return `Hello, ${name}`;
+// }
 /**
  * TODO:
  * Call the function 'sayHello' and pass your name as a string literal argument.
@@ -18,18 +19,20 @@ let sayHello =(name)=>{
  *
  * console.log 'helloMessage' to check your work
  */
-sayHello(`Richard`);
+// let helloMessage = sayHello(prompt("what is your name"));
+// console.log(helloMessage);
 /**
  * TODO:
  * Store your name as a string in a variable named 'myName', and pass that
  * variable to the 'sayHello' function. You should see the same output in the
  * console.
  */
-let myName = name;
-sayHello(myName)
+
+// sayHello(name)
+
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
-var random = Math.floor((Math.random() * 3) + 1);
+// var random = Math.floor((Math.random() * 3) + 1);
 
 /**
  * TODO:
@@ -49,12 +52,12 @@ var random = Math.floor((Math.random() * 3) + 1);
  * number)
  */
 
-let isTwo = (num) => {
-    num === 2? alert(true):alert(false);
-}
-
-// isTwo(parseInt(prompt(`enter number`)));
-isTwo(random);
+// let isTwo = (num) => {
+//     num === 2? alert(true):alert(false);
+// }
+//
+// // isTwo(parseInt(prompt(`enter number`)));
+// isTwo(random);
 /**
  * TODO:
  * Create a function named 'calculateTip' to calculate a tip on a bill at a
@@ -74,6 +77,14 @@ isTwo(random);
  * then display the dollar amount they should tip
  */
 
+// let billTotal = parseInt(prompt("How much is your total bill?"));
+// let tipPercent = parseInt(prompt("What percent would you like to tip?"));
+// let calculateTip = (tip, bill)=> {
+//     let tipTotal = (bill * (tip / 100)).toFixed(2);
+//     console.log(`You should tip ${tipTotal}`);
+//
+// }
+// console.log(calculateTip(tipPercent,billTotal))
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
@@ -88,3 +99,16 @@ isTwo(random);
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+//accept price before discount
+    //    accept discount percentage : a number between 0 and 1
+//   return result of
+let randDiscount = Math.random() *(1-0)+0;
+
+let applyDiscount = (priceBeforeDiscount, discountPercentage)=>{
+// let step1 = discountPercentage * priceBeforeDiscount;
+    console.log(`price: ${priceBeforeDiscount}, discount: %${discountPercentage}`)
+console.log((priceBeforeDiscount - (discountPercentage * priceBeforeDiscount)).toFixed(2));
+}
+
+applyDiscount(40, randDiscount);
+
