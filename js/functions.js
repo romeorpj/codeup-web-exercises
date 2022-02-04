@@ -77,14 +77,14 @@
  * then display the dollar amount they should tip
  */
 
-// let billTotal = parseInt(prompt("How much is your total bill?"));
-// let tipPercent = parseInt(prompt("What percent would you like to tip?"));
-// let calculateTip = (tip, bill)=> {
-//     let tipTotal = (bill * (tip / 100)).toFixed(2);
-//     console.log(`You should tip ${tipTotal}`);
-//
-// }
-// console.log(calculateTip(tipPercent,billTotal))
+let billTotal = parseInt(prompt("How much is your total bill?"));
+let tipPercent = parseInt(prompt("What percent would you like to tip?"));
+let calculateTip = (tip, bill)=> {
+    let tipTotal = (bill * (tip / 100)).toFixed(2);
+    console.log(`You should tip ${tipTotal}`);
+
+}
+console.log(calculateTip(tipPercent,billTotal))
 /**
  * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
@@ -102,7 +102,7 @@
 //accept price before discount
     //    accept discount percentage : a number between 0 and 1
 //   return result of
-let randDiscount = Math.random() *(1-0)+0;
+let randDiscount = Math.random() ;
 
 let applyDiscount = (priceBeforeDiscount, discountPercentage)=>{
 // let step1 = discountPercentage * priceBeforeDiscount;
