@@ -28,7 +28,7 @@
 // let moviePrice = (mermaid + bear + herc);
 // console.log(typeof moviePrice);
 // alert(moviePrice);
-
+//
 // let mermaid = Number(prompt(`How many days do you want this movie?`)) ;
 // let bear = Number(prompt(`How many days do you want this movie?`));
 // let herc = Number(prompt(`How many days do you want this movie?`)) ;
@@ -40,17 +40,17 @@
 // // google 400, amazon 380 face 350
 // // worked 10, 6, 4
 //
-// let googleHours = Number(prompt(`How many hours did you work?`));
-//   let amazonHours = Number(prompt(`How many hours did you work?`));
-//     let facebookHours = Number(prompt(`How many hours did you work?`));
-// let googleMoney = Number(prompt(`How much do you earn per hour?`));
-// let amazonMoney = Number(prompt(`How much do you earn per hour?`));
-// let facebookMoney = Number(prompt(`How much do you earn per hour?`));
-//
-// let hours = (googleHours + amazonHours + facebookHours);
-// let money = (googleMoney + amazonMoney + facebookMoney);
-//
-// alert(hours + money);
+let googleHours = Number(prompt(`How many hours did you work?`));
+  let amazonHours = Number(prompt(`How many hours did you work?`));
+    let facebookHours = Number(prompt(`How many hours did you work?`));
+let googleMoney = Number(prompt(`How much do you earn per hour?`));
+let amazonMoney = Number(prompt(`How much do you earn per hour?`));
+let facebookMoney = Number(prompt(`How much do you earn per hour?`));
+
+let hours = (googleHours + amazonHours + facebookHours);
+let money = (googleMoney + amazonMoney + facebookMoney);
+
+alert(hours + money);
 
 
 //*****
@@ -65,12 +65,12 @@
 //     }
 // }
 
-let question = confirm("Tell me you're free?")
-if(!question){
-    alert("you can't join this class")
-}else{
-    alert("come on and join us")
-}
+// let question = confirm("Tell me you're free?")
+// if(!question){
+//     alert("you can't join this class")
+// }else{
+//     alert("come on and join us")
+// }
 
 
 // let buy = Number(prompt(`How many items are you purchasing?`));
