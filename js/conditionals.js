@@ -27,8 +27,31 @@
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+// var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+// var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+
+// let analyzeColor = (color)=>{
+// if(color === "red"){
+//     console.log(`strawberries are ${color}`)
+// }
+// else if(color === "orange"){
+//     console.log(`oranges are ${color}`)
+// }else if(color === "yellow"){
+//     console.log(`corn is ${color}`)
+// }else if(color === "green"){
+//     console.log(`spinach is ${color}`)
+// }else if(color === "blue"){
+//     console.log(`the sky is ${color}`)
+// }else if(color === "indigo"){
+//     console.log(`the night sky is indigo ${color}`)
+// }else if(color === "violet"){
+//     console.log(`purple is kind of violet ${color}`)
+// }else{
+//     console.log(`i dont know anything about ${color}`)
+// }
+// }
+// analyzeColor(randomColor);
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
@@ -40,13 +63,73 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 
+// let analyzeColor = (randomColor)=>{
+//
+//     switch(randomColor){
+//         case "red":
+//             console.log(`strawberries are ${randomColor}`);
+//             break;
+//         case "orange":
+//             console.log(`oranges are ${randomColor}`);
+//             break;
+//         case "yellow":
+//             console.log(`corn is ${randomColor}`)
+//             break;
+//         case "green":
+//             console.log(`spinach is ${randomColor}`)
+//             break;
+//         case "blue":
+//             console.log(`the sky is ${randomColor}`)
+//             break;
+//         case "indigo":
+//             console.log(`the night sky is indigo ${randomColor}`)
+//             break;
+//         case "violet":
+//             console.log(`purple is kind of violet ${randomColor}`)
+//             break;
+//         default:
+//             console.log(`i dont know anything about ${randomColor}`)
+//     }
+// }
+//
+// analyzeColor(randomColor);
 /**
  * TODO:
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-
+// let askColor = prompt(`what's your favorite color?`)
+// let analyzeColor = (randomColor)=>{
+//
+//     switch(randomColor){
+//         case "red":
+//             alert(`strawberries are ${randomColor}`);
+//             break;
+//         case "orange":
+//             alert(`oranges are ${randomColor}`);
+//             break;
+//         case "yellow":
+//             alert(`corn is ${randomColor}`)
+//             break;
+//         case "green":
+//             alert(`spinach is ${randomColor}`)
+//             break;
+//         case "blue":
+//             alert(`the sky is ${randomColor}`)
+//             break;
+//         case "indigo":
+//             alert(`the night sky is indigo ${randomColor}`)
+//             break;
+//         case "violet":
+//             alert(`purple is kind of violet ${randomColor}`)
+//             break;
+//         default:
+//             alert(`i dont know anything about ${randomColor}`)
+//     }
+// }
+//
+// analyzeColor(askColor);
 /* ########################################################################## */
 
 /**
@@ -68,7 +151,33 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
-
+// let luckyNumber = Math.floor(Math.random() * 6);
+//
+//
+// let calculateTotal = (luckyNumber, totalAmount)=>{
+//     let discountedPrice;
+//     if(luckyNumber === 0){
+//         console.log(luckyNumber)
+//         console.log(totalAmount)
+//     }else if(luckyNumber ===1){
+// console.log(luckyNumber)
+//         console.log(totalAmount - (totalAmount * .10))
+//     }
+//     else if(luckyNumber === 2){
+//         console.log(luckyNumber)
+//         console.log(totalAmount - (totalAmount * .25))
+//     }else if(luckyNumber === 3){
+//         console.log(luckyNumber)
+//         console.log(totalAmount - (totalAmount * .35))
+//     }else if(luckyNumber === 4){
+//         console.log(luckyNumber)
+//         console.log(totalAmount - (totalAmount * .50))
+//     }else{
+//         console.log(luckyNumber)
+//         console.log(totalAmount - totalAmount)
+//     }
+// }
+// calculateTotal(luckyNumber, 100)
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
@@ -78,8 +187,31 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
 
+
+// var luckyNumber = Math.floor(Math.random() * 6);
+// let askTotalBill = prompt(`How much is your total bill?`)
+//
+// let calculateTotal = (luckyNumber, totalAmount)=>{
+//     if(luckyNumber === 0) {
+//         alert(`Your Lucky Number: ${luckyNumber} // Your Price Before Discount: ${askTotalBill} // You Get ZERO Discount, Sorry!`)
+//     }
+//     else if(luckyNumber === 1){
+//             alert(`Your Lucky Number: ${luckyNumber} // Your Price Before Discount: ${askTotalBill} // Your Price After Discount ${totalAmount - (totalAmount * .10)}`)
+//         }
+//     }else if(luckyNumber === 2){
+//         alert(`Your Lucky Number: ${luckyNumber} // Your Price Before Discount: ${askTotalBill} // Your Price After Discount ${totalAmount - (totalAmount * .25)}`)
+//
+//     }else if(luckyNumber === 3){
+//         alert(`Your Lucky Number: ${luckyNumber} // Your Price Before Discount: ${askTotalBill} // Your Price After Discount ${totalAmount - (totalAmount * .35)}`)
+//
+//     }else if(luckyNumber === 4){
+//         alert(`Your Lucky Number: ${luckyNumber} // Your Price Before Discount: ${askTotalBill} // Your Price After Discount ${totalAmount - (totalAmount * .50)}`)
+//
+//     }else {
+//         alert(`Your Lucky Number: ${luckyNumber} // Your Price Before Discount: ${askTotalBill} // Your Price After Discount ${totalAmount - totalAmount} *FREE`)
+// }
+// calculateTotal(luckyNumber, askTotalBill)
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
