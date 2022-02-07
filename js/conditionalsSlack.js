@@ -9,14 +9,14 @@
 let getToDestination = (age, isInsured, hasCar)=>{
     if(age > 16 && isInsured && hasCar){
         console.log("you can use your own vehicle")
-    }else if((age <=16 && !isInsured) || (!hasCar && canGetRideShare())){
+    }else if((age <=16 && !isInsured) || (!hasCar && canGetRideShare(10,20,21))){
         console.log("you have to use rideshare")
     }else{
         console.log("You have to get a ride from a friend")
     }
 
 }
-getToDestination(15,false, true, )
+getToDestination(16,true, true, )
 // If the rider is over 16, has insurance, and has a car then they can use their own vehicle
 // If the rider is not over 16, has no insurance, OR has no car but they CAN get a rideshare, then they call up a rideshare service
 
@@ -25,11 +25,12 @@ getToDestination(15,false, true, )
 //     This getToDestination should not return any value, but rather console log based on the conditions met.
 //     getToDestination, part 2
 
-driverMilesAway = 10;
-uberCost = 20;
-myMoney = 21
-let canGetRideShare = ()=>{
+// driverMilesAway = 10;
+// uberCost = 20;
+// myMoney = 21
+function canGetRideShare (driverMilesAway, uberCost, myMoney){
     if(driverMilesAway <= 10 && myMoney >= uberCost){
+
         return true;
     }else{
         return false;
