@@ -1,9 +1,3 @@
-// Create a function called getToDestination which will help determine how a person can get to their destination!
-//     It will accept 4 arguments and the parameter names are:
-//     age - the age of the rider
-// isInsured - a boolean telling the function if the rider has insurance
-// hasCar - a boolean describing if the rider has a car
-// canGetRideshare - boolean describing if the rider can get a ride share (Uber, etc)
 
 
 let getToDestination = (age, isInsured, hasCar)=>{
@@ -16,7 +10,19 @@ let getToDestination = (age, isInsured, hasCar)=>{
     }
 
 }
-getToDestination(16,true, true, )
+getToDestination(17,false, true, )
+
+function canGetRideShare (driverMilesAway, uberCost, availableFunds){
+    return driverMilesAway <= 10 && availableFunds >= uberCost;
+}
+
+// Create a function called getToDestination which will help determine how a person can get to their destination!
+//     It will accept 4 arguments and the parameter names are:
+//     age - the age of the rider
+// isInsured - a boolean telling the function if the rider has insurance
+// hasCar - a boolean describing if the rider has a car
+// canGetRideshare - boolean describing if the rider can get a ride share (Uber, etc)
+
 // If the rider is over 16, has insurance, and has a car then they can use their own vehicle
 // If the rider is not over 16, has no insurance, OR has no car but they CAN get a rideshare, then they call up a rideshare service
 
@@ -25,17 +31,7 @@ getToDestination(16,true, true, )
 //     This getToDestination should not return any value, but rather console log based on the conditions met.
 //     getToDestination, part 2
 
-// driverMilesAway = 10;
-// uberCost = 20;
-// myMoney = 21
-function canGetRideShare (driverMilesAway, uberCost, myMoney){
-    if(driverMilesAway <= 10 && myMoney >= uberCost){
 
-        return true;
-    }else{
-        return false;
-    }
-}
 // Create a function called canGetRideshare() which will RETURN a boolean
 // It will determine if there are drivers nearby and the person has enough money for the ride
 // Now, when you call getToDestination(), instead of passing in a canGetRideShare parameter
