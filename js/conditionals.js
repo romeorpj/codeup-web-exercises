@@ -104,32 +104,32 @@
 //
 //     switch(randomColor){
 //         case "red":
-//             alert(`strawberries are ${randomColor}`);
+//            return strawberries are ${randomColor}`;
 //             break;
 //         case "orange":
-//             alert(`oranges are ${randomColor}`);
+//           return oranges are ${randomColor}`;
 //             break;
 //         case "yellow":
-//             alert(`corn is ${randomColor}`)
+//            return corn is ${randomColor}`;
 //             break;
 //         case "green":
-//             alert(`spinach is ${randomColor}`)
+//            return spinach is ${randomColor}`;
 //             break;
 //         case "blue":
-//             alert(`the sky is ${randomColor}`)
+//            return the sky is ${randomColor}`;
 //             break;
 //         case "indigo":
-//             alert(`the night sky is indigo ${randomColor}`)
+//            return the night sky is indigo ${randomColor}`;
 //             break;
 //         case "violet":
-//             alert(`purple is kind of violet ${randomColor}`)
+//            return purple is kind of violet ${randomColor}`;
 //             break;
 //         default:
-//             alert(`i dont know anything about ${randomColor}`)
+//            return `i dont know anything about ${randomColor}`;
 //     }
 // }
 //
-// analyzeColor(askColor);
+// alert(analyzeColor(askColor));
 /* ########################################################################## */
 
 /**
@@ -225,26 +225,6 @@
  */
 
 
-
-
-// if (askNum) {
-
-//
-//     if (askForActualNumber % 2 === 0) {
-//         alert(`${askForActualNumber} is even`)
-//     } else {
-//         alert(`${askForActualNumber} is odd`)
-//     }
-//
-//
-//
-//     if (askForActualNumber > 0) {
-//         alert(`Your number:${askForActualNumber} is positive`)
-//     } else {
-//         alert(`Your number:${askForActualNumber} is negative`)
-//
-//     }
-// }
 
 confirm(`would you like to enter a number?`);
 let askForActualNumber = prompt(`Enter your number`)
