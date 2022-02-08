@@ -196,13 +196,10 @@
 //         alert(`Your Lucky Number: $${luckyNumber} // Your Price Before Discount: $${askTotalBill} // Your Price After Discount $${totalAmount - (totalAmount * .10)}`)
 //     } else if (luckyNumber === 2) {
 //         alert(`Your Lucky Number: $${luckyNumber} // Your Price Before Discount: $${askTotalBill} // Your Price After Discount $${totalAmount - (totalAmount * .25)}`)
-//
 //     } else if (luckyNumber === 3) {
 //         alert(`Your Lucky Number: $${luckyNumber} // Your Price Before Discount: $${askTotalBill} // Your Price After Discount $${totalAmount - (totalAmount * .35)}`)
-//
 //     } else if (luckyNumber === 4) {
 //         alert(`Your Lucky Number: $${luckyNumber} // Your Price Before Discount: $${askTotalBill} // Your Price After Discount $${totalAmount - (totalAmount * .50)}`)
-//
 //     } else {
 //         alert(`Your Lucky Number: ${luckyNumber} // Your Price Before Discount: $${askTotalBill} // Your Price After Discount $${totalAmount - totalAmount} *FREE`)
 //     }
@@ -227,33 +224,47 @@
  * HINT: The way we prompt for a value could be improved
  */
 
-let askNum = confirm(`would you like to enter a number?`)
+
+
+
+// if (askNum) {
+
+//
+//     if (askForActualNumber % 2 === 0) {
+//         alert(`${askForActualNumber} is even`)
+//     } else {
+//         alert(`${askForActualNumber} is odd`)
+//     }
+//
+//
+//
+//     if (askForActualNumber > 0) {
+//         alert(`Your number:${askForActualNumber} is positive`)
+//     } else {
+//         alert(`Your number:${askForActualNumber} is negative`)
+//
+//     }
+// }
+
+confirm(`would you like to enter a number?`);
 let askForActualNumber = prompt(`Enter your number`)
-if(askNum) {
 
-
-        alert(`sorry, but you entered the wrong data type`)
-
-
-    if (askForActualNumber % 2 === 0) {
-        alert(`${askForActualNumber} is even`)
-    } else {
-        alert(`${askForActualNumber} is odd`)
+function refactorCode(numPrompt) {
+    numPrompt = parseInt(numPrompt);
+    if (isNaN(numPrompt)) {
+        alert(`sorry, but you entered the wrong data type`);
+    }else if (askForActualNumber % 2 === 0) {
+        alert(`${askForActualNumber} is even`);
+    } else if (askForActualNumber % 2 !== 0){
+        alert(`${askForActualNumber} is odd`);
     }
-    alert(`Your number: ${askForActualNumber} times 100 is ${askForActualNumber * 100}`)
-    if (askForActualNumber > 0) {
+    alert(`Your number: ${askForActualNumber} times 100 is ${askForActualNumber * 100}`);
+        if (askForActualNumber > 0) {
         alert(`Your number:${askForActualNumber} is positive`)
     } else {
         alert(`Your number:${askForActualNumber} is negative`)
 
-}
-}
-
-function refactorCode(numPrompt){
-if(numPrompt ===  NaN){
-    alert(`sorry, but you entered the wrong data type`)
-    numPrompt = askForActualNumber = parseInt(prompt(`Enter your number`))
-}
+    }
 }
 
-refactorCode(askForActualNumber = prompt(`Enter your number`))
+refactorCode(askForActualNumber)
