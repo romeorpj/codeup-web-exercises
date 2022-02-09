@@ -1,4 +1,4 @@
-let showMultiplicationTable = ()=>{
+let showMultiplicationTable = ()=> {
 //    ***7s TABLE
 //    show 7X ? up to 10
 //    concatenate 7 * num
@@ -23,14 +23,29 @@ let showMultiplicationTable = ()=>{
 // }
 
 //***    1 -9 PYRAMID
-    for(let i = 1;i <10;i++){
-        for(let j = 1;j <10;j++){
-
-
+    let str = "";
+    // i is outer loop
+    for (let i = 1; i <= 10; i++) {
+        // j is inner loop
+        for (let j = 1; j <= i; j++) {
+            str += j
         }
-
+        // str += "\n"
     }
 
+    let n = 5; // height of pattern
+    let string = "";
+    // External loop
+    for (let i = 1; i <= n; i++) {
+        // Internal loop
+        for (let j = 1; j <= i; j++) {
+            string += i;
+        }
+        string += "\n";
+    }
+    console.log(string);
+
+
 }
-showMultiplicationTable();
+console.log(showMultiplicationTable());
 
