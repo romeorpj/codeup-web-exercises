@@ -11,27 +11,27 @@ let showMultiplicationTable = () => {
 //    generate 10 random numbers between 20 and 200
     //log whether the numbers are odd or even
 
-        for(let i = 0; i < 11; i++) {
-            let min = Math.ceil(20);
-            let max = Math.floor(200);
-            let random = Math.floor(Math.random() * (max - min) + min);
-            if (random % 2 === 0) {
-                console.log(`${random} is even`)
-            } else {
-                console.log(`${random} is odd`)
-            }
-        }
+        // for(let i = 0; i < 11; i++) {
+        //     let min = Math.ceil(20);
+        //     let max = Math.floor(200);
+        //     let random = Math.floor(Math.random() * (max - min) + min);
+        //     if (random % 2 === 0) {
+        //         console.log(`${random} is even`)
+        //     } else {
+        //         console.log(`${random} is odd`)
+        //     }
+        // }
 
 // //***    1 -9 PYRAMID
-//     let n = 9;
-//     let string = "";
-//     for (let i = 1; i <= n; i++) {
-//         for (let j = 0; j < i; j++) {
-//             string += i;
-//         }
-//         string += "\n";
-//     }
-//     console.log(string);
+    let n = 9;
+    let string = "";
+    for (let i = 1; i <= n; i++) {
+        for (let j = 0; j < i; j++) {
+            string += i;
+        }
+        string += "\n";
+    }
+    console.log(string);
 
 // //***    FOR LOOP COUNTDOWN FROM 100 BY 5
 // //    Ask if ++ is the same +=
