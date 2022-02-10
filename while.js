@@ -13,23 +13,6 @@
 // if there are enough cones -- x cones sold!
 
 
-// let conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
-//
-// do{
-//     let amountOfConesAvailable = Math.floor(Math.random() * 50) + 50;
-//     if(amountOfConesAvailable === 0){
-//         console.log("Yay! I sold them all!")
-//         amountOfConesAvailable - amountOfConesAvailable;
-//     }else if(conesBeingPurchased > amountOfConesAvailable){
-//         console.log(`I cannot sell you ${conesBeingPurchased} cones I only have ${amountOfConesAvailable}`)
-//         break;
-//     }else{
-//         console.log(`${conesBeingPurchased} cones sold! from my stash of ${amountOfConesAvailable}`)
-//         break;
-//     }
-// }while(amountOfCones !== 0);
-
-
 let amountOfConesAvailable = Math.floor(Math.random() * 50) + 50;
 do{
     let conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
