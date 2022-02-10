@@ -26,7 +26,6 @@ let showMultiplicationTable = () => {
 //
 //     // rows and cols = 9;
 //     let num = 9;
-//     let collector = "";
 //     //manage rows
 //     for (let row = 1; row <= num; row++) {
 //         //for every row, run colums col amount of times
