@@ -24,20 +24,35 @@ let showMultiplicationTable = () => {
 
 // //***    1 -9 PYRAMID
 
-    // rows and cols = 9;
-    let num = 9;
-    //manage rows
-    for (let row = 1; row <= num; row++) {
-        //for every row, run columns col amount of times
-        for (let col = 1; col <= row; col++) {
-            console.log(row)
 
+    // let num = 9;
+    // //manage rows
+    // for (let row = 1; row <= num; row++) {
+    //     //for every row, run columns col amount of times
+    //     for (let col = 1; col <= row; col++) {
+    //         console.log(row)
+    //         }
+    //     console.log("\n")
+    //
+    // }
+
+
+    // let i, j;
+    // for(i=1; i<=5; i++)
+    // {
+    //     for(j=1; j<=i; j++)
+    //         console.log(i);
+    //     console.log("<br>");
+    // }
+    let n = 9;
+    let string = "";
+    for (let i = 1; i <= n; i++) {
+        for (let j = 0; j < i; j++) {
+            string += i;
         }
-        console.log(row)
-
+        string += "\n";
     }
-
-
+    console.log(string);
 
 // //***    FOR LOOP COUNTDOWN FROM 100 BY 5
 // //    Ask if ++ is the same +=
