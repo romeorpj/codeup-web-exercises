@@ -1,11 +1,11 @@
-let showMultiplicationTable = ()=> {
+let showMultiplicationTable = () => {
 //    ***7s TABLE
 //    show 7X ? up to 10
 //    concatenate 7 * num
 //    log out the response
-//     for(let i = 0; i < 11; i++){
-//         console.log(`7 x ${i} = ${7*i}`)
-//     }
+    for(let i = 0; i < 11; i++){
+        console.log(`7 x ${i} = ${7*i}`)
+    }
 
 //*** ISODDISEVEN FOR LOOP
 //    generate 10 random numbers between 20 and 200
@@ -22,28 +22,27 @@ let showMultiplicationTable = ()=> {
 //             }
 // }
 
-//***    1 -9 PYRAMID
-    let str = "";
-    // i is outer loop
-    for (let i = 1; i <= 10; i++) {
-        // j is inner loop
-        for (let j = 1; j <= i; j++) {
-            str += j
-        }
-        // str += "\n"
-    }
+// //***    1 -9 PYRAMID
+//
+//     // rows and cols = 9;
+//     let num = 9;
+//     let collector = "";
+//     //manage rows
+//     for (let row = 1; row <= num; row++) {
+//         //for every row, run colums col amount of times
+//         for (let col = 1; col <= row; col++) {
+//             console.log(row)
+//         }
+//         console.log("\n");
+//     }
 
-    let n = 5; // height of pattern
-    let string = "";
-    // External loop
-    for (let i = 1; i <= n; i++) {
-        // Internal loop
-        for (let j = 1; j <= i; j++) {
-            string += i;
-        }
-        string += "\n";
-    }
-    console.log(string);
+
+
+// //***    FOR LOOP COUNTDOWN FROM 100 BY 5
+// //    Ask if ++ is the same +=
+//     for (let i = 100; i >= 5 ; i-=5) {
+//         console.log(i)
+//     }
 
 
 }
