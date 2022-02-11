@@ -24,7 +24,11 @@ let person = {
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-person = ()
+person.sayHello = function sayHello(){
+ console.log(`Hello from ${this.firstName} ${this.lastName}`)
+    };
+console.log(person.sayHello());
+
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -38,13 +42,33 @@ person = ()
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
+    //if buy more than 200 - 12% discount
+    //log how much ryan, cameron, george need to pay
+    //display NAME, AMOUNT BEFORE DISCOUNT, THE ACTUAL DISCOUNT(if any),AMOUNT AFTER DISCOUNT
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    let shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
 
+    let CalculateShopperDiscounts = ()=>{
+        let discountAmount = 12;
+        let discountedPrice;
+        // loop through shoppers with foreach
+        shoppers.forEach((person)=>{
+            if(person.amount > 200){
+                discountedPrice =   person.amount - (person.amount *0.12);
+                console.log(`Hello ${person.name}, Your pre-discount price was $${person.amount}. But with the
+         ${discountAmount}%, your new price is now only $${discountedPrice}`)
+            }
+            else{
+                console.log(`Sorry ${person.name}, you do not qualify for the discount. You have to pay the full price of $${person.amount}`)
+            }
+        })
+    }
+
+CalculateShopperDiscounts();
     /** TODO:
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
@@ -93,5 +117,7 @@ person = ()
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
 
 })();
