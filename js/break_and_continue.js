@@ -2,7 +2,7 @@
 
 let numPrompt = parseInt(prompt(`Please enter any odd number between and including 1 and 50`))
 
-while (numPrompt % 2 === 0 || numPrompt === "") {
+while (numPrompt % 2 === 0 || numPrompt === null) {
     numPrompt = parseInt(prompt(`Please enter any odd number between and including 1 and 50`))
 }
 

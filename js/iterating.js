@@ -52,10 +52,12 @@ names.forEach(elm => console.log(elm));
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-    let first = arr1=>arr1[0];
-    first([1, 2, 3, 4, 5]) // returns 1
-    let second = arr2=>arr2[1];
-    second([1, 2, 3, 4, 5]) // returns 2
-    let last = arr3=>arr3[4];
-    last([1, 2, 3, 4, 5])
+    let first = arr1=>console.log(arr1[0]);
+    first(names)// returns Leonardo
+
+    let second = arr2=>console.log(arr2[1]);
+    second(names)// returns Michelangelo
+
+    let last = arr3=>console.log(arr3[arr3.length -1]);
+    last(names) // return Raphael
 })();
