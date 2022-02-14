@@ -53,22 +53,28 @@ names.forEach(elm => console.log(elm));
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 
-    // let names =["Leonardo", "Michelangelo", "Donatello", "Raphael"];
-    // let first = arr1=>arr1[0];
-    // first(names);
-    //
-    // let second = arr2=>arr2[1];
-    // second(names);
-    //
-    // let last = arr3=>arr3[arr3.length -2];
-    // last(names);
+    names =["Leonardo", "Michelangelo", "Donatello", "Raphael"];
 
-    let first = arr1=>console.log(arr1[0]);
+    let first = arr1=>arr1[0];
     first(names);
 
-    let second = arr2=>console.log(arr2[1]);
+    let second = arr2=>arr2[1];
     second(names);
 
-    let last = arr3=>console.log(arr3[arr3.length -1]);
+    let last = arr3=>arr3[arr3.length - 2]
+    ;
     last(names);
+
+    // function(arr3){
+    //     arr3[arr3.length -2]
+    // }
+
+    // let first = arr1=>console.log(arr1[0]);
+    // first(names);
+    //
+    // let second = arr2=>console.log(arr2[1]);
+    // second(names);
+    //
+    // let last = arr3=>console.log(arr3[arr3.length -1]);
+    // last(names);
 })();
