@@ -81,7 +81,7 @@ CalculateShopperDiscounts();
      * > console.log(books[0].author.lastName) // "Adams"
      */
     let books = [
-        {title: "book1", author: {fName: "A.", lName: "Dude"}},
+        {title: "book1", author: {fName: "Random", lName: "Dude"}},
         {title: "book2", author: {fName: "Some", lName: "Dude"}},
         {title: "book3", author: {fName: "Thee", lName: "Dude"}},
         {title: "book4", author: {fName: "Crazy", lName: "Dude"}},
@@ -93,13 +93,17 @@ console.log(books[0].author.lName) // "Adams"
 
 function bookOutput(){
     books.forEach((i,index)=>{
-        console.log(`Book#: ${index}`);
-        console.log(`Title: ${i.title} `;
+        console.log(i)
+        console.log(`Book#: ${index + 1}`);
+        console.log(`Title: ${i.title}`);
         console.log(`Author: ${i.author.fName} ${i.author.lName} \n`)
+
+
 
     });
 
 }
+bookOutput();
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -124,7 +128,38 @@ function bookOutput(){
      *      ---
      *      ...
      */
+function createBook(){
+        let books2Obj = {};
+        let books2Arr = [];
+        let enterBookTitlePrompt;
+        let enterAuthorNamePrompt;
+    //Loop until user enters ANYTHING other than an empty string
 
+
+
+        do{
+            enterBookTitlePrompt = prompt(`Enter your book title`);
+            enterAuthorNamePrompt = prompt(`Enter author first and last name`)
+        }
+        while((enterBookTitlePrompt === null || enterBookTitlePrompt === "") || (enterAuthorNamePrompt === null || enterAuthorNamePrompt === ""))
+        books2Obj.title = enterBookTitlePrompt;
+        books2Obj.author = enterAuthorNamePrompt;
+        pushToArray(books2Obj)
+        // console.log(enterBookTitlePrompt, enterAuthorNamePrompt);
+        console.log(books2Arr);
+
+
+    }
+    createBook();
+//set to localstorage to store arrays
+function pushToArray(books2ObjParam){
+
+    books2Arr.push(books2ObjParam)
+}
+
+// books2.title = enterBookTitlePrompt;
+
+    // books2.author = enterAuthorNamePrompt;
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
