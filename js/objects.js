@@ -24,10 +24,10 @@ let person = {
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
-person.sayHello = function sayHello(){
- console.log(`Hello from ${this.firstName} ${this.lastName}`)
+    person.sayHello = function sayHello() {
+        console.log(`Hello from ${this.firstName} ${this.lastName}`)
     };
-console.log(person.sayHello());
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -59,8 +59,7 @@ console.log(person.sayHello());
         shoppers.forEach((person)=>{
             if(person.amount > 200){
                 discountedPrice =   person.amount - (person.amount *0.12);
-                console.log(`Hello ${person.name}, Your pre-discount price was $${person.amount}. But with the
-         ${discountAmount}%, your new price is now only $${discountedPrice}`)
+                console.log(`Hello ${person.name}, Your pre-discount price was $${person.amount}. But with the ${discountAmount}%, your new price is now only $${discountedPrice}`)
             }
             else{
                 console.log(`Sorry ${person.name}, you do not qualify for the discount. You have to pay the full price of $${person.amount}`)
@@ -81,7 +80,26 @@ CalculateShopperDiscounts();
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+    let books = [
+        {title: "book1", author: {fName: "A.", lName: "Dude"}},
+        {title: "book2", author: {fName: "Some", lName: "Dude"}},
+        {title: "book3", author: {fName: "Thee", lName: "Dude"}},
+        {title: "book4", author: {fName: "Crazy", lName: "Dude"}},
+        {title: "book5", author: {fName: "Loco", lName: "Dude"}}
+    ];
+console.log(books[0].title) // "The Salmon of Doubt"
+console.log(books[0].author.fName) // "Douglas"
+console.log(books[0].author.lName) // "Adams"
 
+function bookOutput(){
+    books.forEach((i,index)=>{
+        console.log(`Book#: ${index}`);
+        console.log(`Title: ${i.title} `;
+        console.log(`Author: ${i.author.fName} ${i.author.lName} \n`)
+
+    });
+
+}
     /**
      * TODO:
      * Loop through the books array and output the following information about

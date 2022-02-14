@@ -24,10 +24,13 @@
      * string, and <li> tags around each planet.
      */
 
-    // planetsArray.join("<br>")
+//     planetsArray.join("<br>")
 // let planetsJoin =planetsArray.join("<br>");
+// console.log(planetsJoin);
+
 let planetsJoin = planetsArray.map(x => `<li>${x}</li>`)
     console.log(planetsJoin.join(" ").split().map(y=>`<ul>${y}</ul>`).join())
+
 //    planetsJoin maps each planet to a new array with each planet being wrapped in an li
 //    then we join the strings, to remove the comma and to turn the array into one long string
 //    then we split it again with no parameter, this copies the entire string plus li's into a new array as a whole.
