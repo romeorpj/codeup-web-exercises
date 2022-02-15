@@ -97,10 +97,7 @@ function bookOutput(){
         console.log(`Book#: ${index + 1}`);
         console.log(`Title: ${i.title}`);
         console.log(`Author: ${i.author.fName} ${i.author.lName} \n`)
-
-
-
-    });
+});
 
 }
 bookOutput();
