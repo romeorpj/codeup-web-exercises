@@ -128,38 +128,30 @@ bookOutput();
      *      ---
      *      ...
      */
-function createBook(){
+    function createBook() {
         let books2Obj = {};
         let books2Arr = [];
         let enterBookTitlePrompt;
         let enterAuthorNamePrompt;
-    //Loop until user enters ANYTHING other than an empty string
-
-
-
-        do{
+        //Loop until user enters ANYTHING other than an empty string
+        do {
             enterBookTitlePrompt = prompt(`Enter your book title`);
             enterAuthorNamePrompt = prompt(`Enter author first and last name`)
         }
-        while((enterBookTitlePrompt === null || enterBookTitlePrompt === "") || (enterAuthorNamePrompt === null || enterAuthorNamePrompt === ""))
+        while ((enterBookTitlePrompt === null || enterBookTitlePrompt === "") || (enterAuthorNamePrompt === null || enterAuthorNamePrompt === ""))
         books2Obj.title = enterBookTitlePrompt;
         books2Obj.author = enterAuthorNamePrompt;
-        pushToArray(books2Obj)
-        // console.log(enterBookTitlePrompt, enterAuthorNamePrompt);
-        console.log(books2Arr);
-
-
+        showBookInfo(books2Obj, books2Arr)
     }
+
     createBook();
+
 //set to localstorage to store arrays
-function pushToArray(books2ObjParam){
+    function showBookInfo(books2ObjParam, books2ArrParam) {
+        books2ArrParam.push(books2ObjParam)
+        console.log(books2ArrParam)
+    }
 
-    books2Arr.push(books2ObjParam)
-}
-
-// books2.title = enterBookTitlePrompt;
-
-    // books2.author = enterAuthorNamePrompt;
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
