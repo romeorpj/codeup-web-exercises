@@ -30,3 +30,18 @@ let person = {
     dob: "11/09/1985",
     occupation: "Software Developer"
 }
+
+// Create an object representing a person’s contact info. It should have:
+//     phone number
+// street address
+// state
+// postal code
+// email address
+// Hard code some values in that object, then log it and its properties to the console
+
+let personsContactInfo = {
+    address: "1114 some street",
+    state: "Tx",
+    postal_code: 77232,
+    email: "myemail@gmail.com"
+}
