@@ -4,16 +4,29 @@
 //     Example input: [95, 74, 86, 100]
 // Example output: 88.75 (edited)
 // created using for i. and an option using reduce
-(function findAverage() {
-    let arr = [95, 74, 86, 100];
-    // let numHolder = 0;
-    // for (let i of arr) {
-    //     numHolder += i;
-    // }
-    // console.log(numHolder / arr.length)
+// (function findAverage() {
+//     let arr = [95, 74, 86, 100];
+//     // let numHolder = 0;
+//     // for (let i of arr) {
+//     //     numHolder += i;
+//     // }
+//     // console.log(numHolder / arr.length)
+//
+//     let newReduce = arr.reduce((acc,curr)=>{
+//         return acc + curr;
+//     },0)
+// console.log(newReduce / arr.length)
+// })();
 
-    let newReduce = arr.reduce((acc,curr)=>{
-        return acc + curr;
-    },0)
-console.log(newReduce / arr.length)
-})();
+// WARMUP 2
+// Create an object representing a person. It should have properties representing:
+//     names (an array of strings)
+// date of birth
+// occupation
+// Hard code some values in that object, then log it and its properties to the console
+
+let person = {
+    names: ["Richard", "Jackson"],
+    dob: "11/09/1985",
+    occupation: "Software Developer"
+}
