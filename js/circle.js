@@ -2,20 +2,20 @@
     "use strict";
 
     // create a circle object
-    var circle = {
+    let circle = {
         radius: 3,
 
         getArea: function () {
             // TODO: complete this method
             // hint: area = pi * radius^2
-let area = Math.PI * Math.pow(circle.radius,2)
+let area = Math.PI * Math.pow(this.radius,2)
             return area; // TODO: return the proper value
         },
 
         logInfo: function (doRounding) {
             // TODO: complete this method.
 if (doRounding){
-   console.log(Math.round(circle.getArea()));
+   console.log(Math.round(this.getArea()));
 }else{
     console.log("Area of a circle with radius: " + this.radius + ", is: "+circle.getArea());
 }
