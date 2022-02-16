@@ -40,8 +40,9 @@ let person = {
 // Hard code some values in that object, then log it and its properties to the console
 
 let personsContactInfo = {
+    phoneNumber: "333-333-7777",
     address: "1114 some street",
     state: "Tx",
-    postal_code: 77232,
+    postal_code: "77232",
     email: "myemail@gmail.com"
 }
