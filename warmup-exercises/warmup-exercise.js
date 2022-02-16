@@ -42,7 +42,11 @@ let person = {
 let personsContactInfo = {
     phoneNumber: "333-333-7777",
     address: "1114 some street",
-    state: "Tx",
+    city: "San Antonio",
+    state: "TX",
     postal_code: "77232",
     email: "myemail@gmail.com"
 }
+console.log(`${personsContactInfo.address}
+${personsContactInfo.state}, ${personsContactInfo.city} ${personsContactInfo.postal_code}`);
+
