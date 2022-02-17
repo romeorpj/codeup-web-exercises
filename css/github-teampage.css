@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+html {
+    /* resetting font size to 10px makes rem math much easier*/
+    font-size: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+
+}
+
+body{
+    width: 100%;
+
+}
