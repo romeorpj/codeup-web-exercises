@@ -25,7 +25,9 @@ body{
 img{
     max-width: 32px;
 }
-
+header{
+    margin-bottom: 35px;
+}
 nav{
     display: flex;
     justify-content: flex-start;
@@ -118,4 +120,19 @@ font-size: 1.3rem;
     transform: translatex(50%);
     border-radius: 50%;
     z-index: -1;
+}
+table, td, th {
+    border: 1px solid black;
+}
+table a{
+    text-decoration: none;
+}
+.table-avatar-col{
+    display: flex;
+    justify-content:flex-start;
+    align-items:center ;
+    /*margin-right: 8px;*/
+}
+.gravatars{
+    margin-right: 8px;
 }
