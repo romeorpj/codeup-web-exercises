@@ -16,5 +16,23 @@ html {
 
 body{
     width: 100%;
+    /*background: corals;*/
 
+}
+
+img{
+    max-width: 52px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items:center ;
+    min-height:8vh;
+    background: #292c32;
+    background: #000;
+}
+
+.nav-links li{
+    color:white;
 }
