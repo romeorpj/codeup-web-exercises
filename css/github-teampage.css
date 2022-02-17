@@ -5,12 +5,14 @@
     margin: 0;
     padding: 0;
     border: 0;
+    list-style: none;
 }
 html {
     /* resetting font size to 10px makes rem math much easier*/
     font-size: 10px;
     box-sizing: border-box;
     margin: 10px;
+    font-family: sans-serif;
 
 }
 
@@ -21,18 +23,38 @@ body{
 }
 
 img{
-    max-width: 52px;
+    max-width: 32px;
 }
 
 nav{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items:center ;
-    min-height:8vh;
+    min-height: 4vh;
     background: #292c32;
     background: #000;
+    padding-left: 11px;
+}
+.nav-wrapper{
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center ;
 }
 
+.github-logo{
+    margin-right: 45px;
+}
+
+ul{
+    display: flex;
+    justify-content:space-around;
+    align-items:center ;
+    flex-basis: 280px;
+
+}
 .nav-links li{
     color:white;
+    font-size: 1.3rem;
+font-weight: bold;
 }
