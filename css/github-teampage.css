@@ -91,14 +91,31 @@ font-weight: bold;
 .top-grey-header ul li{
 font-size: 1.3rem;
     margin-right: 20px;
+    color: gray;
+
 }
 .top-grey-header-span{
-    width: 30px;
-    height: 30px;
-    background: aqua;
-    border-radius: 50%;
+    /*width: 20px;*/
+    /*height: 20px;*/
+    /*padding: 5px;*/
+    /*background: aqua;*/
+    /*border-radius: 100%;*/
+    position: relative;
+    z-index: 77;
+    margin-left: 5px;
+
 }
-/*.top-grey-header ul span:before{*/
-/*    font-size: 1.3rem;*/
-/*    margin-right: 20px;*/
-/*}*/
+.top-grey-header-span::after{
+    content: "";
+    position: absolute;
+    background: lightgray;
+    width: 15px;
+    height: 15px;
+    /*top: 0;*/
+    left: -50%;
+    /*right: 0;*/
+    /*bottom: 0;*/
+    transform: translatex(50%);
+    border-radius: 50%;
+    z-index: -1;
+}
