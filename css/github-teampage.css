@@ -34,27 +34,71 @@ nav{
     background: #292c32;
     background: #000;
     padding-left: 11px;
+    margin-bottom: 15px;
 }
 .nav-wrapper{
     width: 80%;
     display: flex;
     justify-content: flex-start;
     align-items:center ;
+
 }
 
 .github-logo{
     margin-right: 45px;
 }
 
-ul{
+.nav-wrapper ul{
     display: flex;
     justify-content:space-around;
     align-items:center ;
-    flex-basis: 280px;
+    flex-basis: 350px;
 
 }
 .nav-links li{
     color:white;
     font-size: 1.3rem;
 font-weight: bold;
+    /*padding:0 5px ;*/
 }
+/*secondary nav*/
+.top-grey-header{
+   padding: 6px;
+    background: #fafbfc;
+    border-bottom: #292c32 1px solid;
+}
+.secondary-logo{
+    display: flex;
+    justify-content:flex-start;
+    align-items:center ;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+.secondary-logo img{
+    margin-right: 12px;
+}
+.secondary-logo p{
+    font-size: 18px;
+}
+
+.top-grey-header ul{
+    display: flex;
+    justify-content:flex-start;
+    align-items:center ;
+    padding-left: 15px;
+
+}
+.top-grey-header ul li{
+font-size: 1.3rem;
+    margin-right: 20px;
+}
+.top-grey-header-span{
+    width: 30px;
+    height: 30px;
+    background: aqua;
+    border-radius: 50%;
+}
+/*.top-grey-header ul span:before{*/
+/*    font-size: 1.3rem;*/
+/*    margin-right: 20px;*/
+/*}*/
