@@ -121,9 +121,9 @@ font-size: 1.3rem;
     border-radius: 50%;
     z-index: -1;
 }
-table, td, th {
-    border: 1px solid black;
-}
+/*table, td, th {*/
+/*    border: 1px solid black;*/
+/*}*/
 table a{
     text-decoration: none;
 }
@@ -131,8 +131,18 @@ table a{
     display: flex;
     justify-content:flex-start;
     align-items:center ;
-    /*margin-right: 8px;*/
+    padding-left: 20px;
 }
+th{
+    height: 45px;
+/*width: 100%;*/
+    background: #fafbfc;
+    padding: 0 0 10px 20px;
+    font-size: 1.2rem;
+}
+/*tr{*/
+/*    height: 60px;*/
+/*}*/
 .gravatars{
     margin-right: 8px;
 }

@@ -81,3 +81,29 @@ function enterNames() {
 
 enterNames();
 
+// Friday Feb 18 Warmup
+// Warmup: Create a function which returns true if the given argument is a number, false if it is not a number
+// Wrong answer
+let isNumber = (num) => {
+    if (!isNaN(num)) {
+        return true;
+    }
+    return false;
+};
+
+// console.log(isNumber("8")) // returns true
+console.log(isNumber([8])); // does js access the array?
+console.log(typeof [8]);
+
+// console.log(isNumber(true)) // why is this true no matter what
+// console.log(isNumber({test:"test"}))
+// console.log(isNumber(88))
+
+// correct answer
+
+let isNumberAgain = (num)=>{
+    return !isNaN(parseFloat(num));
+}
+let isNumberAgainAgain = (num)=>{
+    return typeof num === typeof 2;
+}
