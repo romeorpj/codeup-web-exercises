@@ -65,7 +65,7 @@ float: right;
 }
 .profile-details, .timeline,.who-to-follow{
     float: left;
-    margin: .5em 0;
+    margin: 0 .5em;
 }
 .profile-details{
     width: calc(25% - .5em);
@@ -129,5 +129,6 @@ float: right;
     float: left;
 }
 .media-body{
-    float: left;
+    float: right;
+    width: calc(100% - 50px);
 }
