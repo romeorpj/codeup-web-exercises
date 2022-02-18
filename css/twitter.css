@@ -65,11 +65,19 @@ float: right;
 }
 .profile-details, .timeline,.who-to-follow{
     float: left;
-    margin: 0 .5em;
+    margin: 0px .5em;
 }
 .profile-details{
-    width: calc(25% - .5em);
+    width: calc(25% - .10em);
 }
+.timeline{
+
+    width: calc(50% - .10em);
+}
+.who-to-follow{
+    width: calc(25% - .10em);
+}
+
 .profile-items{
     list-style: none;
     padding: 0px;
@@ -85,12 +93,7 @@ float: right;
     top: -40px;
 
 }
-.timeline{
-    width: calc(50% - .5em);
-}
-.who-to-follow{
-    width: calc(25% - .5em);
-}
+
 
 
 .btn {
