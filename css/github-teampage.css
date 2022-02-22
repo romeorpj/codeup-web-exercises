@@ -121,15 +121,20 @@ font-size: 1.3rem;
     border-radius: 50%;
     z-index: -1;
 }
-table, tr, th {
-    border: 1px solid black;
+
+/*table*/
+table, tr, th, .gray-header {
+    border: 1.5px solid #eaeaea;
     border-collapse: collapse;
 }
-table{
+
+table {
     /*width: 90%;*/
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
+
 }
-table a{
+
+table a {
     text-decoration: none;
 
 }
@@ -154,19 +159,12 @@ table td:last-of-type{
 table td:last-of-type p{
     font-size:1.4rem;
 }
-/*th{*/
-/*    height: 45px;*/
-/*!*width: 100%;*!*/
-/*    background: #e9eaec;*/
-/*    padding: 0 0 10px 20px;*/
-/*    font-size: 1.2rem;*/
-/*}*/
+
 .gray-header{
-    background: #e9eaec;
+    background: #f2f2fa;
     height: 55px;
     width: 90%;
     margin: 0 auto;
-    border: 1px solid black;
     border-bottom: none;
     padding: 15px 0 10px 30px;
 }
@@ -175,9 +173,36 @@ table td:last-of-type p{
     font-weight: bold;
 }
 tr{
-    /*display: flex;*/
     height: 90px;
 }
 .gravatars{
     margin-right: 8px;
+}
+
+/*footer*/
+
+footer{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    height: 90px;
+    border-top: 1px solid black;
+}
+footer ul{
+    display: flex;
+    flex-basis: 50%;
+    align-items: center;
+
+}
+footer ul li{
+    padding: .7em;
+}
+
+footer ul li a, footer ul li p{
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+footer .footer-right{
+    justify-content: flex-end;
 }
