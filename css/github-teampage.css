@@ -11,7 +11,7 @@ html {
     /* resetting font size to 10px makes rem math much easier*/
     font-size: 10px;
     box-sizing: border-box;
-    margin: 10px;
+    /*margin: 10px;*/
     font-family: sans-serif;
 
 }
@@ -23,7 +23,7 @@ body{
 }
 
 img{
-    max-width: 32px;
+    max-width:52px;
 }
 header{
     margin-bottom: 35px;
@@ -32,7 +32,7 @@ nav{
     display: flex;
     justify-content: flex-start;
     align-items:center ;
-    min-height: 4vh;
+    min-height: 7vh;
     background: #292c32;
     background: #000;
     padding-left: 11px;
@@ -121,28 +121,63 @@ font-size: 1.3rem;
     border-radius: 50%;
     z-index: -1;
 }
-/*table, td, th {*/
-/*    border: 1px solid black;*/
-/*}*/
+table, tr, th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table{
+    /*width: 90%;*/
+    margin: 0 auto;
+}
 table a{
     text-decoration: none;
+
 }
-.table-avatar-col{
-    display: flex;
-    justify-content:flex-start;
-    align-items:center ;
-    padding-left: 20px;
-}
-th{
-    height: 45px;
-/*width: 100%;*/
-    background: #fafbfc;
-    padding: 0 0 10px 20px;
-    font-size: 1.2rem;
-}
-/*tr{*/
-/*    height: 60px;*/
+/*table td:first-of-type{*/
+/*    display: flex;*/
+/*    flex-grow: 1;*/
 /*}*/
+.td-outer{
+    display: flex;
+    align-items: center;
+    font-size:1.3rem;
+    padding-left: 30px;
+}
+
+table td:last-of-type{
+    display: flex;
+    height: 90px;
+    /*padding:;*/
+    align-items: center;
+    justify-content: space-around;
+}
+table td:last-of-type p{
+    font-size:1.4rem;
+}
+/*th{*/
+/*    height: 45px;*/
+/*!*width: 100%;*!*/
+/*    background: #e9eaec;*/
+/*    padding: 0 0 10px 20px;*/
+/*    font-size: 1.2rem;*/
+/*}*/
+.gray-header{
+    background: #e9eaec;
+    height: 55px;
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-bottom: none;
+    padding: 15px 0 10px 30px;
+}
+.gray-header p{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+tr{
+    /*display: flex;*/
+    height: 90px;
+}
 .gravatars{
     margin-right: 8px;
 }

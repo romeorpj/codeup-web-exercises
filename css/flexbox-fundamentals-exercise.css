@@ -49,6 +49,7 @@ section:nth-of-type(1) {
     background: lightgreen;
     justify-content: space-between;
     align-items: center;
+
     /* enter needed declarations here */
 }
 section:nth-of-type(1) div:last-child {
