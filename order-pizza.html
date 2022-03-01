@@ -20,12 +20,12 @@
 
 <!--NAVIGATION-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-0 border-top">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler ml-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ">
+        <ul class="navbar-nav ml-3">
             <li class="nav-item">
                 <a class="nav-link py-3" href="#">Pizza world</a>
             </li>
@@ -42,7 +42,7 @@
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search stores near you!</button>
         </form>
     </div>
-    <div class="signup-nav d-flex justify-content-around align-items-center ml-auto">
+    <div class="signup-nav d-flex justify-content-around align-items-center ml-auto mr-3">
         <i class="fa-solid fa-user text-secondary"></i>
         <a class="nav-link text-secondary py-3" href="#">Sign up</a>
     </div>
@@ -89,50 +89,57 @@
 
             <!--            beginning of card inner body wrapper-->
             <div class="card-body border border-bottom-0 border-top-0">
-
-                <!--                beginning of inner card 1-->
                 <div class="card mb-3">
                     <div class="card-header">
                         Hand Tossed
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <!--had to add margin left 3 for some reason. work on solving that.-->
-                        <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
-                        <li class="list-group-item ml-3"><input class="form-check-input" type="radio"
-                                                                name="flexRadioDefault" id="flexRadioDefault1"><label
-                                class="form-check-label" for="flexRadioDefault1">
-                            Small (10")
-                        </label></li>
-                        <li class="list-group-item ml-3"><input class="form-check-input" type="radio"
-                                                                name="flexRadioDefault" id="flexRadioDefault2"><label
-                                class="form-check-label" for="flexRadioDefault2">
-                            Medium (12")
-                        </label></li>
-                    </ul>
-                </div>
-                <!--                end  inner card 1-->
 
-                <!-- beginning inner card 2-->
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Garlic seasoned crust with a rich, buttery taste.
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="size" id="small10">
+                                <label class="custom-control-label" for="small10">Small (10")</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="size" id="medium121">
+                                <label class="custom-control-label" for="medium121">Medium (12")</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--                        START SECOND BOX THIRD TAB-->
+                </div>
                 <div class="card mb-3">
                     <div class="card-header">
                         Crispy Thin
                     </div>
                     <ul class="list-group list-group-flush">
-                        <!--had to add margin left 3 for some reason. work on solving that.-->
-                        <li class="list-group-item">Thin enough for optimum crispy to crunch ratio.</li>
-                        <li class="list-group-item ml-3"><input class="form-check-input" type="radio"
-                                                                name="flexRadioDefault" id="flexRadioDefault3"><label
-                                class="form-check-label" for="flexRadioDefault3">
-                            Medium (12")
-                        </label></li>
-                        <li class="list-group-item ml-3"><input class="form-check-input" type="radio"
-                                                                name="flexRadioDefault" id="flexRadioDefault4"><label
-                                class="form-check-label" for="flexRadioDefault4">
-                            Large (14")
-                        </label></li>
+                        <li class="list-group-item">
+                            Thin enough for optimum crispy to crunch ratio.
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="size" id="medium12">
+                                <label class="custom-control-label" for="medium12">Medium (12")</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-radio">
+                                <input type="radio" class="custom-control-input" name="size" id="large14">
+                                <label class="custom-control-label" for="large14">Large(14")</label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <!--                end inner card 2-->
             </div>
 
             <div class="card-footer border d-flex justify-content-end">
@@ -147,7 +154,7 @@
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <!--        BEGIN SECOND TAB CONTENT-->
             <div class="card-header bg-primary text-white">
-                Choose Cheese and Sauce
+                Choose cheese and sauce
             </div>
 
             <!--            beginning of card inner body wrapper-->
@@ -208,40 +215,91 @@
         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
             <!--        BEGIN FIRST TAB CONTENT-->
             <div class="card-header bg-primary text-white">
-                Choose size and crust
+                Choose toppings
             </div>
-            <div class="card mb-3">
-                <div class="card-header">
-                    Hand Tossed
-                </div>
+
             <!--            beginning of card inner body wrapper-->
             <div class="card-body border border-bottom-0 border-top-0">
-
-                <!--                beginning of inner card 1-->
-
-
-
-
-                    <div class="card-footer border d-flex justify-content-end">
-                        <button class="btn btn-lg btn-primary ">
-                            Checkout <i class="fa-solid fa-cart-shopping"></i>
-                        </button>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Choose Your Meats
                     </div>
+
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="beef">
+                                <label class="custom-control-label" for="beef">Beef</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="ham">
+                                <label class="custom-control-label" for="ham">Ham</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="sausage">
+                                <label class="custom-control-label" for="sausage">Sausage</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="bacon">
+                                <label class="custom-control-label" for="bacon">Bacon</label>
+                            </div>
+                        </li>
+                    </ul>
+                    <!--                        START SECOND BOX THIRD TAB-->
                 </div>
-
-
-
-
-
-
-
-
-
-
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Choose Your Vegetables
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="green-peppers">
+                                <label class="custom-control-label" for="green-peppers">Green Peppers</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="mushrooms">
+                                <label class="custom-control-label" for="mushrooms">Mushrooms</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="onions">
+                                <label class="custom-control-label" for="onions">Onions</label>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <!-- Default checked -->
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="pineapples">
+                                <label class="custom-control-label" for="pineapples">Pineapples</label>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-footer border d-flex justify-content-end">
+                <button class="btn btn-lg btn-primary ">
+                    Checkout <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+            </div>
         </div>
-        <!--        END THIRD TAB CONTENT-->
-    </div>
-
     </div>
 </section>
 
