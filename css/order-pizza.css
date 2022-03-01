@@ -2,15 +2,34 @@
     background: #eeeeee;
 }
 
-
-
 .jumbotron{
-    background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
-    height: 100%;
+    background-image: url("../img/pizza.png");
+    /*height: 100%;*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
-.jumbotron h1{
+.jumbotron h1 {
+    opacity: .70;
+    /*font-weight: 400;*/
+}
 
+/*#myTab .nav-item{*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+.tab-circles {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    /*border: solid 1px #1464F4;*/
+    background: #848487;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    margin: 0;
 }
