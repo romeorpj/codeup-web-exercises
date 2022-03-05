@@ -45,27 +45,25 @@ subHeader.style.color = "blue";
         for(let i = 0;i <= listItems.length;i += 2){
             listItems[i].style.color = "gray";
         };
+        // had to move the following "mission accomplished code starting on line 52 because it returns uncaught type error and wont run any code below it
+        let subParagraphs = document.querySelector(".sub-paragraph").textContent = "Mission Accomplished!";
+        console.log(subParagraphs);
+
         // TODO: Set text color of li with dbid = 1 to blue
         for (let i = 0; i <= listItems.length; i++) {
-            let dataList = listItems[i].getAttribute("data-dbid");
-            console.log(dataList);
+            let dataList = listItems[i].getAttribute('data-dbid');
+            // console.log(dataList);
             if(dataList === "1"){
                 listItems[0].style.color = "blue";
             }
         }
-        // for(let listItem in listItems){
-        //     let dataList = listItem.getAttribute("data-dbid");
-        //     console.log(dataList);
-        //     if(dataList === "1"){
-        //         listItem.style.color = "blue";
-        //     }
-        // }
+
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = Array.from(document.querySelectorAll(".sub-paragraph"));
+
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        let subpara = document.querySelector(".sub-paragraph");
-        console.log(subpara)
+        // let subpara = document.querySelector(".sub-paragraph");
+        // console.log(subpara)
             // [0].textContent = "Mission Accomplished!";
 
     })();
