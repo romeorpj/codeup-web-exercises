@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pets Warmup</title>
+</head>
+<!--Create an HTML file with only an unordered list with the id of pets in the body. Within an inline script declare and array called pets with four elements. Loop through the list and add each element as a list item to the ul.-->
+<body>
+<ul id="pets"></ul>
+
+
+
+<script>
+
+
+    // let newLi = document.createElement("li");
+    // console.log(newLi);
+
+
+    let addLi = () => {
+        let ul = document.querySelector("ul");
+        let pets = ["dog", "cat", "fish", "bird"];
+
+        for (let i = 0; i <= pets.length - 1; i++) {
+            let newLi = document.createElement("li");
+            console.log(newLi)
+            // let listOfLi = newLi.textContent = pets[i];
+            // console.log(listOfLi)
+            // ul.appendChild(listOfLi);
+
+            // ul.appendChild(newLi.innerHTML = `<p>pets[i]</p>`);
+        }
+    };
+    console.log(addLi());
+
+</script>
+</body>
+</html>
