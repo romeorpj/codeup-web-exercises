@@ -7,12 +7,16 @@ $(document).ready(function () {
     // alert( listOfCharacters );
 
     // add codeup class
-    $( 'li' ).addClass( "codeup" ).css("border", '1px solid red' );
+   let lis =  $( 'li' ).addClass( "codeup" ).css("border", '1px solid red' );
 
+// TODO: remove class
     // remove codeup class
-   console.log($( '#list-of-characters + li' ).removeClass("codeup"))
+   // $( 'li' )[1].removeClass("codeup")
 // give a random element the class of codeup
     $( 'p' ).addClass( "codeup" );
+
+   $("li").css("font-size", "20px")
+    $("h1,p,li").css("background","yellow")
 });
 
 
