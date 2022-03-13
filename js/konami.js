@@ -7,9 +7,33 @@
 
 $(document).ready(function () {
     // *CREATE CANVAS WITH JQUERY
-    let mainCanvas = $("<canvas id='canvas1'>");
-    $("body").append(mainCanvas)
+    let mainCanvas = $("<canvas id='canvas1'></canvas>");
+    // $("body").append(mainCanvas)
+    let body1 = $("body");
+//why does innerHTML not work with jquery and canvas?
 
+// console.log(`${mainCanvas[0]}`)
+//     body1.append( ` <div id="container">
+// <p>Game Speed: <span id="showGameSpeed"></span></p>
+// <input type="range" min="0" max="20" value="5" class="slider" id="slider">
+// </div>
+// `);
+
+//Create and add individual elements so that canvas would work and be connected inside the container
+    let container = $('<div id="container"></div>');
+    body1.append(container);
+    let speedText = $('<p>Game Speed: <span id="showGameSpeed"></span></p>');
+    container.append(speedText);
+    let slider = $('<input type="range" min="0" max="20" value="5" class="slider" id="slider">');
+    container.append(slider);
+    container.prepend(mainCanvas);
+
+//CHARACTER AND ENEMIES
+    let character = $('<div id="character"></div>');
+    mainCanvas.append(character);
+    let enemy = $('<div id="enemy"></div>');
+    container.append(enemy);
+    console.log(character, enemy)
 
     // SETUP 2D CANVAS
 //    *START Creating context with vanilla javascript
@@ -26,8 +50,26 @@ $(document).ready(function () {
     const CANVAS_HEIGHT = mainCanvas[0].height = 700;
     console.log(mainCanvas[0]);
 
+    //*manually adjust scroll speed
+    //this will be the default speed btw
+    let gameSpeed =5;
+    //updates slider value and position
+    slider.val(gameSpeed)
+    //set gamespeed span to show gameSpeed value
+    let showGameSpeed = $("#showGameSpeed");
+    showGameSpeed.html(gameSpeed);
+    //clickevent when slider change, update speed and span
+    $( ".slider" ).change(function(e) {
+        //e.target.value returns number at a given slider position
+       gameSpeed = e.target.value;
+        //this line updates the span with the current speed
+        showGameSpeed.html(e.target.value);
+    });
+
+
 
     //*GET SCROLLING IMAGES
+    //new Image() creates an html image element
     let backgroundLayer1 = new Image();
     backgroundLayer1.src = "/img/konami_code/konami_images/test/layer-1.png";
     let backgroundLayer2 = new Image();
@@ -39,8 +81,7 @@ $(document).ready(function () {
     let backgroundLayer5 = new Image();
     backgroundLayer5.src = "/img/konami_code/konami_images/test/layer-5.png";
 
-    //*manually adjust scroll speed
-    let gameSpeed =3;
+
 
     //*CREATE NEW IMAGES OBJECTS FOR EASIER HANDLING
     //the modifier allows me to change scroll speed of each image for parallax effect, while still be in sync with
@@ -100,6 +141,7 @@ $(document).ready(function () {
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
         // loop through array of layer objects and call the update and draw methods on each one to output scrolling
         // images on screen
+        ctx.drawImage(character, 0, 0);
         gameLayers.forEach(object =>{
             object.update();
             object.draw();
