@@ -40,35 +40,70 @@ $(document).ready(function () {
     backgroundLayer5.src = "/img/konami_code/konami_images/test/layer-5.png";
 
     //*manually adjust scroll speed
-    let gameSpeed =15;
-    //x axis controlled inside animate function moves images left right; y moves images up down
-    //x2 starts at 2400, which is at the end(to the right) of x
-    let x = 0;
-let x2 = 2400;
-    //*CREATE FUNCTION TO ANIMATE AND CONTROL IMAGES
+    let gameSpeed =3;
+
+    //*CREATE NEW IMAGES OBJECTS FOR EASIER HANDLING
+    //the modifier allows me to change scroll speed of each image for parallax effect, while still be in sync with
+    // the global game speed, so i can change speed of all images if i do a speed burst for example.
+    class Layer {
+        constructor(image, speedModifier) {
+            //set all images x (top left corner)to 0
+            this.x = 0;
+            this.y = 0;
+            this.width = 2400;
+            this.height = 700;
+            // start second image where first image ends
+            this.x2 = this.width;
+            this.image = image;
+            this.speedModifier = speedModifier;
+            //Allows me to pass different speedmodifier value for each image, but will still be tied to global game
+            // speed
+            this.speed = gameSpeed * this.speedModifier;
+        }
+    //    METHODS
+    //     in charge of moving images horizontally and resetting each image.
+        update(){
+            this.speed = gameSpeed * this.speedModifier;
+            if(this.x <= -this.width){
+                this.x = this.width + this.x2 - this.speed;
+            }
+            if(this.x2 <= -this.width){
+                this.x2 = this.width + this.x - this.speed;
+            }
+            this.x = Math.floor(this.x - this.speed);
+            this.x2 = Math.floor(this.x2 - this.speed);
+        }
+        //everytime update runs, draw will redraw items on the screen
+        draw(){
+            //    drawImage = image top left x and y and the width and height
+            ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+            ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
+        }
+    }
+//*CREATE NEW LAYER OBJECTS
+//*NOTE speedmodifier is half. so if gamespeed is 10px, this layer will be moving at 5px per frame
+    const layer1 = new Layer(backgroundLayer1, 0.2)
+    const layer2 = new Layer(backgroundLayer2, 0.43)
+    const layer3 = new Layer(backgroundLayer3, 0.6)
+    const layer4 = new Layer(backgroundLayer4, 0.83)
+    const layer5 = new Layer(backgroundLayer5, 1.1)
+
+    //CREATE ARRAY OF NEW LAYER OBJECTS
+    //gameObjects
+    let gameLayers = [layer1, layer2,layer3,layer4,layer5];
+
+
+
+    //*CREATE RECURSIVE FUNCTION TO HANDLE RAF
     //RAF Article https://www.kirupa.com/html5/animating_with_requestAnimationFrame.htm
     function animate() {
-        //ClearRect is needed to erase the whole canvas, otherwise screen will just retain previous frames on screen(Smudging)
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-        //drawImage - image, x and y coordinate to place top left corner of image.
-        //drew a second image to give it an infinite scroll feel
-        ctx.drawImage(backgroundLayer4, x, 0);
-        ctx.drawImage(backgroundLayer4, x2 , 0);
-        //if the top left corner of x reach less than -2400, reset the image to positive 2400 (2400 is the width of
-        // the images)
-        //have to minus gamespeed because images are updating at different times and the image width (2400) is
-        // isnt divisible by gamespeed variable so it creates a gap, that can grow larger or overlap overtime
-        //so minus gamespeed to offset each image while the other one was resetting, to shorten the gap
-        //gap is still there when gamespeed isnt divisible by width
-        //** gap is completely gone when i offset each image by the difference in width of the other image.
-        if(x < -2400) x = 2400 + x2 - gameSpeed;
-        else x -= gameSpeed;
-        if(x2 < -2400) x2 = 2400 + x - gameSpeed;
-        else x2 -= gameSpeed;
-        //essentially RAF is calling animate 60 times per sec.
-        //x-= gameSpeed ...subtracts gamespeed from x and assigns that value to x, the more you subtract - the
-        // faster the image will move negatively to the left
-        // x -= gameSpeed;
+        // loop through array of layer objects and call the update and draw methods on each one to output scrolling
+        // images on screen
+        gameLayers.forEach(object =>{
+            object.update();
+            object.draw();
+        })
         requestAnimationFrame(animate);
     }
 animate();
@@ -95,3 +130,43 @@ animate();
         }
     });
 })
+
+
+
+
+//*non dry way of setting scroll speed
+//x axis controlled inside animate function moves images left right; y moves images up down
+//x2 starts at 2400, which is at the end(to the right) of x
+//     let x = 0;
+// let x2 = 2400;
+
+
+
+//*CREATE FUNCTION TO ANIMATE AND CONTROL IMAGES
+//RAF Article https://www.kirupa.com/html5/animating_with_requestAnimationFrame.htm
+// function animate() {
+//     //ClearRect is needed to erase the whole canvas, otherwise screen will just retain previous frames on screen(Smudging)
+//     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+//     //drawImage - image, x and y coordinate to place top left corner of image.
+//     //drew a second image to give it an infinite scroll feel
+//     ctx.drawImage(backgroundLayer1, x, 0);
+//     ctx.drawImage(backgroundLayer1, x2 , 0);
+//     //if the top left corner of x reach less than -2400, reset the image to positive 2400 (2400 is the width of
+//     // the images)
+//     //have to minus gamespeed because images are updating at different times and the image width (2400) is
+//     // isnt divisible by gamespeed variable so it creates a gap, that can grow larger or overlap overtime
+//     //so minus gamespeed to offset each image while the other one was resetting, to shorten the gap
+//     //gap is still there when gamespeed isnt divisible by width
+//     //** gap is completely gone when i offset each image by the difference in width of the other image.
+//     //This is the long winded and repetitious method, the better way is to probably use classes/constructor
+//     if(x < -2400) x = 2400 + x2 - gameSpeed;
+//     else x -= gameSpeed;
+//     if(x2 < -2400) x2 = 2400 + x - gameSpeed;
+//     else x2 -= gameSpeed;
+//     //essentially RAF is calling animate 60 times per sec.
+//     //x-= gameSpeed ...subtracts gamespeed from x and assigns that value to x, the more you subtract - the
+//     // faster the image will move negatively to the left
+//     // x -= gameSpeed;
+//     requestAnimationFrame(animate);
+// }
+// animate();
