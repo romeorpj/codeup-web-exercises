@@ -89,6 +89,9 @@ $(document).ready(function () {
     foreground.src = "/img/konami_code/konami_images/newKonami/foreground.png";
     let character = new Image();
     character.src = "/img/konami_code/konami_images/newKonami/character.png";
+    let audio = new Audio('img/konami_code/cyberpunk-street-files/music/cyberpunk-street.mp3');
+    $("audio").attr("loop")
+    // console.log(audio)
     //*CREATE NEW IMAGES OBJECTS FOR EASIER HANDLING
     //the modifier allows me to change scroll speed of each image for parallax effect, while still be in sync with
     // the global game speed, so i can change speed of all images if i do a speed burst for example.
@@ -181,8 +184,7 @@ $(document).ready(function () {
             if (konamiPosition === myKonami.length) {
 // call game function here
                 animate();
-                var audio = new Audio(' ');
-                audio.play();
+                audio.play().then(r => r);
                 konamiPosition = 0;
             }
         } else {
