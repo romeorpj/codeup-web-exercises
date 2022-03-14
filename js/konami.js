@@ -29,11 +29,11 @@ $(document).ready(function () {
     container.prepend(mainCanvas);
 
 //CHARACTER AND ENEMIES
-    let character = $('<div id="character"></div>');
-    mainCanvas.append(character);
-    let enemy = $('<div id="enemy"></div>');
-    container.append(enemy);
-    console.log(character, enemy)
+//     let character = $('<div id="character"></div>');
+//     mainCanvas.append(character);
+//     let enemy = $('<div id="enemy"></div>');
+//     container.append(enemy);
+//     console.log(character, enemy)
 
     // SETUP 2D CANVAS
 //    *START Creating context with vanilla javascript
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
     //*manually adjust scroll speed
     //this will be the default speed btw
-    let gameSpeed =5;
+    let gameSpeed =3;
     //updates slider value and position
     slider.val(gameSpeed)
     //set gamespeed span to show gameSpeed value
@@ -70,19 +70,25 @@ $(document).ready(function () {
 
     //*GET SCROLLING IMAGES
     //new Image() creates an html image element
-    let backgroundLayer1 = new Image();
-    backgroundLayer1.src = "/img/konami_code/konami_images/test/layer-1.png";
-    let backgroundLayer2 = new Image();
-    backgroundLayer2.src = "/img/konami_code/konami_images/test/layer-2.png";
-    let backgroundLayer3 = new Image();
-    backgroundLayer3.src = "/img/konami_code/konami_images/test/layer-3.png";
-    let backgroundLayer4 = new Image();
-    backgroundLayer4.src = "/img/konami_code/konami_images/test/layer-4.png";
-    let backgroundLayer5 = new Image();
-    backgroundLayer5.src = "/img/konami_code/konami_images/test/layer-5.png";
+    // let backgroundLayer1 = new Image();
+    // backgroundLayer1.src = "/img/konami_code/konami_images/test/layer-1.png";
+    // let backgroundLayer2 = new Image();
+    // backgroundLayer2.src = "/img/konami_code/konami_images/test/layer-2.png";
+    // let backgroundLayer3 = new Image();
+    // backgroundLayer3.src = "/img/konami_code/konami_images/test/layer-3.png";
+    // let backgroundLayer4 = new Image();
+    // backgroundLayer4.src = "/img/konami_code/konami_images/test/layer-4.png";
+    // let backgroundLayer5 = new Image();
+    // backgroundLayer5.src = "/img/konami_code/konami_images/test/layer-5.png";
 
-
-
+    let background = new Image();
+    background.src = "/img/konami_code/konami_images/newKonami/background.jpeg";
+    let middleground= new Image();
+    middleground.src = "/img/konami_code/konami_images/newKonami/middleground.png";
+    let foreground = new Image();
+    foreground.src = "/img/konami_code/konami_images/newKonami/foreground.png";
+    let character = new Image();
+    character.src = "/img/konami_code/konami_images/newKonami/character.png";
     //*CREATE NEW IMAGES OBJECTS FOR EASIER HANDLING
     //the modifier allows me to change scroll speed of each image for parallax effect, while still be in sync with
     // the global game speed, so i can change speed of all images if i do a speed burst for example.
@@ -91,7 +97,8 @@ $(document).ready(function () {
             //set all images x (top left corner)to 0
             this.x = 0;
             this.y = 0;
-            this.width = 2400;
+            this.width = 1134;
+            // this.width = 2400;
             this.height = 700;
             // start second image where first image ends
             this.x2 = this.width;
@@ -123,15 +130,22 @@ $(document).ready(function () {
     }
 //*CREATE NEW LAYER OBJECTS
 //*NOTE speedmodifier is half. so if gamespeed is 10px, this layer will be moving at 5px per frame
-    const layer1 = new Layer(backgroundLayer1, 0.2)
-    const layer2 = new Layer(backgroundLayer2, 0.43)
-    const layer3 = new Layer(backgroundLayer3, 0.6)
-    const layer4 = new Layer(backgroundLayer4, 0.83)
-    const layer5 = new Layer(backgroundLayer5, 1.1)
+    const layer1 = new Layer(background, 0.2)
+    // const layer2 = new Layer(backgroundLayer2, 0.43)
+    const layer3 = new Layer(middleground, 0.4)
+    // const layer4 = new Layer(backgroundLayer4, 0.83)
+    const layer5 = new Layer(foreground, 0.7)
+
+    // const layer1 = new Layer(backgroundLayer1, 0.2)
+    // const layer2 = new Layer(backgroundLayer2, 0.43)
+    // const layer3 = new Layer(backgroundLayer3, 0.6)
+    // const layer4 = new Layer(backgroundLayer4, 0.83)
+    // const layer5 = new Layer(backgroundLayer5, 1.1)
 
     //CREATE ARRAY OF NEW LAYER OBJECTS
     //gameObjects
-    let gameLayers = [layer1, layer2,layer3,layer4,layer5];
+    let gameLayers = [layer1, layer3,layer5];
+    // let gameLayers = [layer1, layer2,layer3,layer4,layer5];
 
 
 
@@ -141,16 +155,17 @@ $(document).ready(function () {
         ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
         // loop through array of layer objects and call the update and draw methods on each one to output scrolling
         // images on screen
-        ctx.drawImage(character, 0, 0);
+        ctx.drawImage(character, 0, 0,390,593);
         gameLayers.forEach(object =>{
             object.update();
             object.draw();
         })
         requestAnimationFrame(animate);
     }
-animate();
+
 
 // KONAMI PASSWORD
+//     "↑ ↑ ↓ ↓ ← → ← → b a enter"
     let myKonami = [38, 38,40,40,37,39,37,39,66,65,13];
     let konamiPosition = 0;
 
@@ -165,6 +180,9 @@ animate();
 
             if (konamiPosition === myKonami.length) {
 // call game function here
+                animate();
+                var audio = new Audio(' ');
+                audio.play();
                 konamiPosition = 0;
             }
         } else {
