@@ -81,18 +81,22 @@ $(document).ready(function () {
     // let backgroundLayer5 = new Image();
     // backgroundLayer5.src = "/img/konami_code/konami_images/test/layer-5.png";
 
+    // TODO: *CREATE CHARACTER IMAGE OBJECT
     let background = new Image();
     background.src = "/img/konami_code/konami_images/newKonami/background.jpeg";
     let middleground= new Image();
     middleground.src = "/img/konami_code/konami_images/newKonami/middleground.png";
     let foreground = new Image();
     foreground.src = "/img/konami_code/konami_images/newKonami/foreground.png";
+    // TODO: *CREATE CHARACTER IMAGE OBJECT
     let character = new Image();
     character.src = "/img/konami_code/konami_images/newKonami/character.png";
+    // TODO: *CREATE AUDIO OBJECT
     let audio = new Audio('img/konami_code/cyberpunk-street-files/music/cyberpunk-street.mp3');
     $("audio").attr("loop")
     // console.log(audio)
-    //*CREATE NEW IMAGES OBJECTS FOR EASIER HANDLING
+
+// TODO: *BACKGROUND IMAGE MOVEMENT AND SPEED
     //the modifier allows me to change scroll speed of each image for parallax effect, while still be in sync with
     // the global game speed, so i can change speed of all images if i do a speed burst for example.
     class Layer {
@@ -131,7 +135,8 @@ $(document).ready(function () {
             ctx.drawImage(this.image, this.x2, this.y, this.width, this.height);
         }
     }
-//*CREATE NEW LAYER OBJECTS
+
+//TODO: *CREATE NEW BACKGROUND IMAGE OBJECTS
 //*NOTE speedmodifier is half. so if gamespeed is 10px, this layer will be moving at 5px per frame
     const layer1 = new Layer(background, 0.2)
     // const layer2 = new Layer(backgroundLayer2, 0.43)
@@ -196,7 +201,7 @@ $(document).ready(function () {
 
 
 
-//*non dry way of setting scroll speed
+//*non DRY way of setting scroll speed
 //x axis controlled inside animate function moves images left right; y moves images up down
 //x2 starts at 2400, which is at the end(to the right) of x
 //     let x = 0;

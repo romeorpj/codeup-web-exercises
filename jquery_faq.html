@@ -50,23 +50,76 @@
     <dt>Owlman</dt>
     <dd>A giant owl-like creature.</dd>
 </dl>
-
+<h3>National Parks of Texas</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+<button type="submit" class="btn">SUBMIT</button>
 <script>
 
     $(document).ready(function() {
       "use strict";
-$('dd').click(function(event) {
-            event.preventDefault();
-            // let dd = $("dd");
-            // dd.addClass("invisible");
-            $(this).toggleClass('invisible');
-        });
+        $('dd').addClass('invisible');
+        $('dl').after('<a href="#" id="toggleButton">Toggle Invisible</a>');
+        $('#toggleButton').click(function () {
+            $('dd').toggleClass('invisible');
+        })
         $('dt').click(function(event) {
             event.preventDefault();
-            // let dd = $("dd");
-            // dd.addClass("invisible");
             $(this).toggleClass('highlight');
         });
+    //    END dd FUNCTION*
+
+        let btn = $(".btn");
+        $(btn).click(function(event) {
+            event.preventDefault();
+                    $("li:last-child").css('background-color', '#FF0');
+        });
+        // END btn FUNCTION*
+$("h3").addClass("h3");
+        $(".h3").click(function(event) {
+            event.preventDefault();
+            $("li").css('font-weight', 'bold');
+        });
+        //    END h3 FUNCTION*
+
+
+        //click any list item (li), first li in ul should turn blue
+       // $("ul").addClass("ul")
+       //  $("li").addClass("li");
+       //  $(".li").click(function(event) {
+       //      event.preventDefault();
+       //      $("li").parent().html();
+       //      // $("li").parent("ul").css('color', 'blue');
+       //  });
+
+        $('.ul').each(function(index) {
+            if (index === "0") {
+                $("li").css('color', 'blue');
+                console.log(index);
+                // $(this).css('background-color', '#FF0');
+            }
+        });
+        //    END list item FUNCTION*
+
+
+
+
+
+
+
     });
 </script>
 </body>
