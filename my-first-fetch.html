@@ -9,18 +9,50 @@
 </head>
 <body>
 
-<div id="weather"></div>
+<h1 class="name"></h1>
+<p class="terrain"></p>
+<p class="climate"></p>
 
 
 
 <script src="js/keys.js"></script>
 <script>
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=${OWM_KEY}`)
-        .then(resp => resp.json())
-        .then(data => {
-            // utilize data promise object data on the DOM
-            console.log(data.daily[0].temp)
-        //    async / await for even better syntax
+    // fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=${OWM_KEY}`)
+    //     .then(resp => resp.json())
+    //     .then(data => {
+    //         // utilize data promise object data on the DOM
+    //         console.log(data.daily[0].temp)
+    //     //    async / await for even better syntax
+    //     });
+
+
+
+    let body = document.querySelector("body")
+
+    fetch(`https://swapi.dev/api/planets/`)
+        .then(response => response.json())
+        .then(data =>{
+            data.results.map((planet)=>{
+                let name = document.createElement("h1");
+                name.innerHTML = `${planet.name}`
+                body.appendChild(name)
+                let climate = document.createElement("p");
+                climate.innerHTML = `${planet.climate}`
+                body.appendChild(climate)
+                let terrain = document.createElement("p");
+                terrain.innerHTML = `${planet.terrain}`
+                body.appendChild(terrain)
+
+
+                // console.log(`${planet.name}`)
+                // console.log(`${planet.climate}`)
+                // console.log(`${planet.terrain}`)
+
+            })
+            // console.log(data.results)
+    })
+        .catch(err => {
+            console.error(err);
         });
     </script>
 </body>
