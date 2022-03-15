@@ -87,11 +87,12 @@
             event.preventDefault();
                     $("li:last-child").css('background-color', '#FF0');
         });
+
         // END btn FUNCTION*
 $("h3").addClass("h3");
         $(".h3").click(function(event) {
             event.preventDefault();
-            $("li").css('font-weight', 'bold');
+            $(this).next().css('font-weight', 'bold');
         });
         //    END h3 FUNCTION*
 
