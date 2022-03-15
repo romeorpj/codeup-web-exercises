@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MY FIRST FETCH</title>
+</head>
+<body>
+
+<div id="weather"></div>
+
+
+
+<script src="js/keys.js"></script>
+<script>
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=${OWM_KEY}`)
+        .then(resp => resp.json())
+        .then(data => {
+            // utilize data promise object data on the DOM
+            console.log(data.daily[0].temp)
+        //    async / await for even better syntax
+        });
+    </script>
+</body>
+</html>

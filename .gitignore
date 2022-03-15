@@ -2,3 +2,4 @@
 *.iml
 DStore
 secret.txt
+js/keys.js
