@@ -8,13 +8,6 @@
     <title>MY FIRST FETCH</title>
 </head>
 <body>
-
-<h1 class="name"></h1>
-<p class="terrain"></p>
-<p class="climate"></p>
-
-
-
 <script src="js/keys.js"></script>
 <script>
     // fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&units=imperial&appid=${OWM_KEY}`)
@@ -28,12 +21,17 @@
 
 
     let body = document.querySelector("body")
-
+    let docDescription = document.createElement("h1");
+    docDescription.innerHTML = `A List Of Star Wars Planets`;
+    docDescription.style.textDecoration = "underline"
+    body.appendChild(docDescription)
     fetch(`https://swapi.dev/api/planets/`)
         .then(response => response.json())
         .then(data =>{
             data.results.map((planet)=>{
-                let name = document.createElement("h1");
+
+
+                let name = document.createElement("h2");
                 name.innerHTML = `${planet.name}`
                 body.appendChild(name)
                 let climate = document.createElement("p");
