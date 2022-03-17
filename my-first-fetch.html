@@ -25,29 +25,22 @@
     docDescription.innerHTML = `A List Of Star Wars Planets`;
     docDescription.style.textDecoration = "underline"
     body.appendChild(docDescription)
+
+
     fetch(`https://swapi.dev/api/planets/`)
         .then(response => response.json())
         .then(data =>{
             data.results.map((planet)=>{
-
-
                 let name = document.createElement("h2");
-                name.innerHTML = `${planet.name}`
+                name.innerHTML = `${planet.name}`;
                 body.appendChild(name)
                 let climate = document.createElement("p");
-                climate.innerHTML = `${planet.climate}`
-                body.appendChild(climate)
+                climate.innerHTML = `${planet.climate}`;
+                body.appendChild(climate);
                 let terrain = document.createElement("p");
-                terrain.innerHTML = `${planet.terrain}`
-                body.appendChild(terrain)
-
-
-                // console.log(`${planet.name}`)
-                // console.log(`${planet.climate}`)
-                // console.log(`${planet.terrain}`)
-
+                terrain.innerHTML = `${planet.terrain}`;
+                body.appendChild(terrain);
             })
-            // console.log(data.results)
     })
         .catch(err => {
             console.error(err);
