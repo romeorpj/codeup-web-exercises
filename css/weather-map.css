@@ -12,6 +12,7 @@
 /* Set core root defaults */
 html:focus-within {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 html {
     font-family: 'Rubik', sans-serif;
@@ -38,6 +39,18 @@ textarea,
 select {
     font-family: 'Rubik', sans-serif;
 }
+
+.flex-row{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-col{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 /* ########## END GLOBAL ########## */
 
 :root{
@@ -56,11 +69,13 @@ header{
     width: 80%;
 /*    not gonna worry about height*/
     margin: 0 auto;
+    /*border: 1px solid purple;*/
 }
 
 h1{
     color: white;
     text-align: center;
+    padding: 20px 0;
 }
 .header__user-input-wrapper{
     /*display: flex;*/
@@ -75,6 +90,7 @@ h1{
     max-width: 360px;
     left: 50%;
     transform: translateX(-50%);
+    margin-bottom: 20px;
 }
 #input1{
     width: 100%;
@@ -104,10 +120,175 @@ outline: none;
     border-top-right-radius:var(--radius) ;
 }
 /***HANDLES FORECAST-WRAPPER***/
-.forecast-wrapper{
+.owm-icon{
+    width: 35%;
+}
+.snap-scroll{
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 1rem;
+}
+.snap-scroll > *{
+    scroll-snap-align: start;
+
+}
+.forecast-scroller{
     width: 100%;
-    height: 140px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 25%;
+    gap: 24px;
+    overflow-x: auto;
+    overscroll-behavior: contain;
+    padding-bottom: 30px;
+    /*border: 1px solid purple;*/
+}
+::-webkit-scrollbar{
+    display: none;
+}
+.forecast{
     background: white;
+    /*width: 300px;*/
     color:var(--black);
     border-radius: var(--radius);
+    padding: 20px;
+    /*border: red solid 1px;*/
+    /*box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;*/
+
+}
+/*.date-container{*/
+/*    justify-content: space-around;*/
+/*}*/
+/*.forecast-hilo{*/
+/*    justify-content: space-around;*/
+/*}*/
+.forecast-lo{
+    margin-right: 12px;
+}
+.forecast-hilo p{
+    font-weight: 500;
+    color: var(--black);
+}
+.date-container .forecast-day{
+    font-weight: 500;
+    color: var(--black);
+    margin-left: 10px;
+}
+/*.description-wrapper{*/
+/*    flex-direction: column;*/
+/*}*/
+.description-title, .humidity-title,.wind-speed-title{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #848487;
+    letter-spacing: 0.09rem;
+}
+.description-output, .humidity-output, .wind-speed-output{
+    font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+
+    /***HANDLES INPUT AND BUTTON***/
+    .user-input-wrapper-elements{
+        position: relative;
+        overflow: hidden;
+        max-width: 360px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 20px;
+    }
+    #input1{
+        width: 100%;
+
+        height: 45px;
+        border-radius: var(--radius);
+        padding: 20px;
+        color: var(--black);
+        font-size: 1.7rem;
+        /*font-weight: 300;*/
+        border: none;
+        outline: none;
+
+    }
+    .header-btn1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--black);
+        color: white;
+        height: 45px;
+        width: 55px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-bottom-right-radius:var(--radius) ;
+        border-top-right-radius:var(--radius) ;
+    }
+    /***HANDLES FORECAST-WRAPPER***/
+    .owm-icon{
+        width: 35%;
+    }
+    .snap-scroll{
+        scroll-snap-type: inline mandatory;
+        scroll-padding-inline: 1rem;
+    }
+    .snap-scroll > *{
+        scroll-snap-align: start;
+
+    }
+    .forecast-scroller{
+        width: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 25%;
+        gap: 24px;
+        overflow-x: auto;
+        overscroll-behavior: contain;
+        padding-bottom: 30px;
+        /*border: 1px solid purple;*/
+    }
+    ::-webkit-scrollbar{
+        display: none;
+    }
+    .forecast{
+        background: white;
+        /*width: 300px;*/
+        color:var(--black);
+        border-radius: var(--radius);
+        padding: 20px;
+        /*border: red solid 1px;*/
+        /*box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;*/
+
+    }
+    /*.date-container{*/
+    /*    justify-content: space-around;*/
+    /*}*/
+    /*.forecast-hilo{*/
+    /*    justify-content: space-around;*/
+    /*}*/
+    .forecast-lo{
+        margin-right: 12px;
+    }
+    .forecast-hilo p{
+        font-weight: 500;
+        color: var(--black);
+    }
+    .date-container .forecast-day{
+        font-weight: 500;
+        color: var(--black);
+        margin-left: 10px;
+    }
+    /*.description-wrapper{*/
+    /*    flex-direction: column;*/
+    /*}*/
+    .description-title, .humidity-title,.wind-speed-title{
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #848487;
+        letter-spacing: 0.09rem;
+    }
+    .description-output, .humidity-output, .wind-speed-output{
+        font-weight: 500;
+    }
+
 }
