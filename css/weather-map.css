@@ -119,6 +119,9 @@ outline: none;
     border-bottom-right-radius:var(--radius) ;
     border-top-right-radius:var(--radius) ;
 }
+.header-btn1:active{
+    transform: translateX(3px);
+}
 /***HANDLES FORECAST-WRAPPER***/
 .owm-icon{
     width: 35%;
@@ -135,12 +138,15 @@ outline: none;
     width: 100%;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 25%;
+    grid-auto-columns: 100%;
+    /*max-width: 360px;*/
     gap: 24px;
     overflow-x: auto;
     overscroll-behavior: contain;
     padding-bottom: 30px;
     /*border: 1px solid purple;*/
+    z-index: 15;
+    position: relative;
 }
 ::-webkit-scrollbar{
     display: none;
@@ -151,16 +157,14 @@ outline: none;
     color:var(--black);
     border-radius: var(--radius);
     padding: 20px;
-    /*border: red solid 1px;*/
-    /*box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;*/
-
 }
-/*.date-container{*/
-/*    justify-content: space-around;*/
-/*}*/
-/*.forecast-hilo{*/
-/*    justify-content: space-around;*/
-/*}*/
+/*TODO: MAPBOX*/
+#map {
+    /* the width and height may be set to any size */
+    width: 100%;
+    height: 70vh;
+    z-index: 11;
+}
 .forecast-lo{
     margin-right: 12px;
 }
@@ -224,6 +228,7 @@ outline: none;
         border-bottom-right-radius:var(--radius) ;
         border-top-right-radius:var(--radius) ;
     }
+
     /***HANDLES FORECAST-WRAPPER***/
     .owm-icon{
         width: 35%;
@@ -290,5 +295,9 @@ outline: none;
     .description-output, .humidity-output, .wind-speed-output{
         font-weight: 500;
     }
-
+    #map {
+        /* the width and height may be set to any size */
+        width: 100%;
+        height: 70vh;
+    }
 }
