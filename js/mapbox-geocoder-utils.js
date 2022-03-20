@@ -18,15 +18,17 @@ function geocode(search, token) {
     var endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
         .then(function(res) {
+            // console.log(`function data ${res.json()}`)
             return res.json();
             // to get all the data from the request, comment out the following three lines...
-        }).then(function(data) {
-            console.log(`function data ${data.features[0].center}`)
+        })
+        .then(function(data) {
+            // console.log(`function data ${data.features[0].center}`)
             return data.features[0].center;
 
         });
 }
-geocode("ohio", MAPBOX_KEY)
+// geocode("ohio", MAPBOX_KEY)
 
 /***
  * reverseGeocode is a method to search for a physical address based on inputted coordinates
@@ -46,11 +48,13 @@ function reverseGeocode(coordinates, token) {
     var endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + coordinates.lng + "," + coordinates.lat + '.json' + "?" + 'access_token=' + token)
         .then(function(res) {
+            // console.log(res.json())
             return res.json();
         })
         // to get all the data from the request, comment out the following three lines...
         .then(function(data) {
-             ;
+
+            // return data.features[0]; --OBJECT OBJECT
             return data.features[0].place_name;
         });
 }

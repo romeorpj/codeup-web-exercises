@@ -61,7 +61,7 @@ select {
 header{
     width: 100%;
     height: 30vh;
-    /*background: url("/img/weather-bg.jpeg");*/
+    background: url("/img/weather-bg.jpeg");
     background: darkcyan;
 }
 
@@ -138,7 +138,7 @@ outline: none;
     width: 100%;
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 100%;
+    grid-auto-columns: 80%;
     /*max-width: 360px;*/
     gap: 24px;
     overflow-x: auto;
@@ -189,7 +189,28 @@ outline: none;
 .description-output, .humidity-output, .wind-speed-output{
     font-weight: 500;
 }
+/*TODO: REVERSE GEOCODE WRAPPER*/
+.reverseGeoWrapper{
+    width: 300px;
+    border-radius: var(--radius);
+    padding: 10px;
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    background:
+            #f3f3f3;
+    z-index: 44;
 
+}
+.reverseGeoWrapper p{
+    font-size: 1.25rem;
+}
+#map {
+    /* the width and height may be set to any size */
+    width: 100%;
+    height: 70vh;
+    z-index: 11;
+}
 @media screen and (min-width: 768px) {
 
     /***HANDLES INPUT AND BUTTON***/
@@ -245,7 +266,7 @@ outline: none;
         width: 100%;
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: 25%;
+        grid-auto-columns: 30%;
         gap: 24px;
         overflow-x: auto;
         overscroll-behavior: contain;
