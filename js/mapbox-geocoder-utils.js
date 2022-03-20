@@ -21,10 +21,12 @@ function geocode(search, token) {
             return res.json();
             // to get all the data from the request, comment out the following three lines...
         }).then(function(data) {
+            console.log(`function data ${data.features[0].center}`)
             return data.features[0].center;
+
         });
 }
-
+geocode("ohio", MAPBOX_KEY)
 
 /***
  * reverseGeocode is a method to search for a physical address based on inputted coordinates
@@ -48,6 +50,8 @@ function reverseGeocode(coordinates, token) {
         })
         // to get all the data from the request, comment out the following three lines...
         .then(function(data) {
+             ;
             return data.features[0].place_name;
         });
 }
+
