@@ -55,7 +55,9 @@ select {
 
 :root{
     --black:#202124;
-    --radius: 8px
+    --gray:#848487;
+    --radius: 8px;
+    --font-size: 1.55rem;
 }
 
 header{
@@ -70,23 +72,21 @@ header{
 /*    not gonna worry about height*/
     margin: 0 auto;
     /*border: 1px solid purple;*/
+    /*position*/
 }
 
 h1{
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 15px 0 10px 0;
 }
 .header__user-input-wrapper{
-    /*display: flex;*/
-    /*!*align-items: center;*!*/
-    /*!*justify-content: space-evenly;*!*/
     width: 100%;
 }
 /***HANDLES INPUT AND BUTTON***/
 .user-input-wrapper-elements{
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
     max-width: 360px;
     left: 50%;
     transform: translateX(-50%);
@@ -120,11 +120,13 @@ outline: none;
     border-top-right-radius:var(--radius) ;
 }
 .header-btn1:active{
-    transform: translateX(3px);
+    /*transform: translateX(3px);*/
+    transform: scale(1.1) translateX(-2px);
+    background: #202124;
 }
 /***HANDLES FORECAST-WRAPPER***/
 .owm-icon{
-    width: 35%;
+    width: 45%;
 }
 .snap-scroll{
     scroll-snap-type: inline mandatory;
@@ -132,14 +134,19 @@ outline: none;
 }
 .snap-scroll > *{
     scroll-snap-align: start;
-
+    box-shadow:
+            0 3.9px 4.6px rgba(0, 0, 0, 0.08),
+            0 12.3px 8.4px rgba(0, 0, 0, 0.056),
+            0 18.8px 19.2px rgba(0, 0, 0, 0.037),
+            0 22px 40px rgba(0, 0, 0, 0.019);
+    /*max-width: 200px;*/
 }
 .forecast-scroller{
     width: 100%;
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 80%;
-    /*max-width: 360px;*/
+
     gap: 24px;
     overflow-x: auto;
     overscroll-behavior: contain;
@@ -147,6 +154,7 @@ outline: none;
     /*border: 1px solid purple;*/
     z-index: 15;
     position: relative;
+
 }
 ::-webkit-scrollbar{
     display: none;
@@ -156,38 +164,59 @@ outline: none;
     /*width: 300px;*/
     color:var(--black);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    /*width: 100%;*/
 }
-/*TODO: MAPBOX*/
-#map {
-    /* the width and height may be set to any size */
-    width: 100%;
-    height: 70vh;
-    z-index: 11;
+.forecast > *{
+    /*border-bottom: 1px solid #ececec;*/
+    padding:5px;
 }
+.forecast > *:nth-child(even){
+background: rgba(236, 240, 241, 0.53);
+}
+
 .forecast-lo{
     margin-right: 12px;
 }
+
 .forecast-hilo p{
     font-weight: 500;
     color: var(--black);
+    font-size: var(--font-size);
+}
+.hilo-temp{
+    color: var(--gray);
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+.date-container p{
+    font-weight: 300;
+    font-size: var(--font-size);
 }
 .date-container .forecast-day{
     font-weight: 500;
     color: var(--black);
     margin-left: 10px;
 }
-/*.description-wrapper{*/
-/*    flex-direction: column;*/
-/*}*/
+
 .description-title, .humidity-title,.wind-speed-title{
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #848487;
-    letter-spacing: 0.09rem;
-}
-.description-output, .humidity-output, .wind-speed-output{
+    font-size: var(--font-size);
     font-weight: 500;
+    color: var(--black);
+    letter-spacing: 0.09rem;
+    margin-right: 5px;
+}
+.description-output, .humidity-output, .wind-speed-output,.forecast-hilo,.date-container{
+    font-weight: 300;
+    color: var(--black);
+
+    /*justify-content: space-around;*/
+}
+.description-wrapper, .humidity-wrapper, .wind-speed-wrapper,.forecast-hilo{
+    justify-content: space-evenly;
+    width: 100%;
 }
 /*TODO: REVERSE GEOCODE WRAPPER*/
 .reverseGeoWrapper{
@@ -197,19 +226,39 @@ outline: none;
     position: absolute;
     left: 20px;
     bottom: 20px;
-    background:
-            #f3f3f3;
+    background: #f3f3f3;
     z-index: 44;
-
+    box-shadow:
+            0 3.9px 4.6px rgba(0, 0, 0, 0.08),
+            0 12.3px 8.4px rgba(0, 0, 0, 0.056),
+            0 18.8px 19.2px rgba(0, 0, 0, 0.037),
+            0 22px 40px rgba(0, 0, 0, 0.019);
 }
+.fa-circle-xmark{
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    font-size: 1.8rem;
+    z-index: 77;
+    cursor: pointer;
+    padding: 5px;
+}
+
 .reverseGeoWrapper p{
     font-size: 1.25rem;
 }
+
+
+/*TODO: MAPBOX*/
 #map {
     /* the width and height may be set to any size */
     width: 100%;
     height: 70vh;
     z-index: 11;
+}
+h2{
+    font-size: 1.3rem;
+    letter-spacing: 01px;
 }
 @media screen and (min-width: 768px) {
 
