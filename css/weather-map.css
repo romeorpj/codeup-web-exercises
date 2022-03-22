@@ -206,9 +206,9 @@ top: 60%;
     /*max-width: 200px;*/
     transition: all 450ms ease-in-out;
 }
-.snap-scroll > *:hover{
-    transform: translateY(-5px);
-}
+/*.snap-scroll > *:hover{*/
+/*    transform: translateY(-5px);*/
+/*}*/
 .forecast-scroller{
     width: 100%;
     display: grid;

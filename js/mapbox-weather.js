@@ -1,10 +1,7 @@
 "use strict"
 let input1 = document.querySelector("#input1");
 let btn1 = document.querySelector(".header-btn1");
-let marker = new mapboxgl.Marker({
-    //probably use dragstart and dragend to update coords
-    draggable:true
-});
+let marker = new mapboxgl.Marker();
 let map;
 let mapChoices = document.querySelector("#map-selector");
 
@@ -27,23 +24,17 @@ function setupMap(center) {
         trackResize: true,
     })
 
+
+
+
 // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl({
-        visualizePitch: true
-    }),'bottom-right');
+    map.addControl(new mapboxgl.NavigationControl(),'bottom-right');
 
 // ***TODO: REVERSE GEOCODING
     map.on('click', (e) => {
         // let coordinates = {lng:e.lngLat.lng, lat:e.lngLat.lat};
         coordsObj.lat = e.lngLat.lat;
         coordsObj.long = e.lngLat.lng;
-        map.flyTo({
-            center: [
-                coordsObj.long,
-                coordsObj.lat
-            ],
-            essential: true // this animation is considered essential with respect to prefers-reduced-motion
-        });
         reverseGeocode(coordsObj, MAPBOX_KEY).then((results) => {
             // console.log(`this is results ${results}`)
             getMapboxWeather(coordsObj).then(mapWeatherData => {
@@ -85,7 +76,6 @@ ${info}`);
             marker.addTo(map)
             .setPopup(popup);
         popup.addTo(map);
-        // popup.closeOnMove(true)
     });
 }
 //TODO: GEOCODING
@@ -94,18 +84,10 @@ let geoSearch = input1.value;
 
     geocode(geoSearch, MAPBOX_KEY).then(function(result) {
         console.log(result)
-        // map.flyTo({
-        //     center: [
-        //         result[0] + (Math.random() - 0.5) * 10,
-        //         result[1] + (Math.random() - 0.5) * 10
-        //     ],
-        //     essential: true // this animation is considered essential with respect to prefers-reduced-motion
-        // });
         map.setCenter(result);
         map.setZoom(16);
         coordsObj.lat = result[1];
         coordsObj.long = result[0];
-
         placeMarkerAndPopup(geoSearch, MAPBOX_KEY, map);
         getMapboxWeather(coordsObj).then(mapWeatherData => {
             outputMapboxWeather(mapWeatherData)
