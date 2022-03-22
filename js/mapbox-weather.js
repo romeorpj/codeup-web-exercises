@@ -1,7 +1,10 @@
 "use strict"
 let input1 = document.querySelector("#input1");
 let btn1 = document.querySelector(".header-btn1");
-let marker = new mapboxgl.Marker();
+let marker = new mapboxgl.Marker({
+    //probably use dragstart and dragend to update coords
+    draggable:true
+});
 let map;
 let mapChoices = document.querySelector("#map-selector");
 
@@ -23,19 +26,26 @@ function setupMap(center) {
         zoom: 16, // starting zoom
         trackResize: true,
     })
+
 // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl(),'bottom-right');
+    map.addControl(new mapboxgl.NavigationControl({
+        visualizePitch: true
+    }),'bottom-right');
 
 // ***TODO: REVERSE GEOCODING
     map.on('click', (e) => {
         // let coordinates = {lng:e.lngLat.lng, lat:e.lngLat.lat};
         coordsObj.lat = e.lngLat.lat;
         coordsObj.long = e.lngLat.lng;
-        // console.log(`this is e ${e}`)
-        // console.log(`this is lat ${coordsObj.lat}`)
-        // console.log(`this is long ${coordsObj.long}`)
+        map.flyTo({
+            center: [
+                coordsObj.long,
+                coordsObj.lat
+            ],
+            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        });
         reverseGeocode(coordsObj, MAPBOX_KEY).then((results) => {
-            console.log(`this is results ${results}`)
+            // console.log(`this is results ${results}`)
             getMapboxWeather(coordsObj).then(mapWeatherData => {
                 outputMapboxWeather(mapWeatherData)
             }).catch(error => {
@@ -48,17 +58,34 @@ function setupMap(center) {
 }
 //END MAP OBJECT
 
+function reverseGeocode(coordsObj, token) {
+    var baseUrl = 'https://api.mapbox.com';
+    var endPoint = '/geocoding/v5/mapbox.places/';
+    return fetch(baseUrl + endPoint + coordsObj.long + "," + coordsObj.lat + '.json' + "?" + 'access_token=' + token)
+        .then(function(res) {
+            return res.json();
+        })
+        // to get all the data from the request, comment out the following three lines...
+        .then(function(data) {
+            return data.features[0].place_name;
+        });
+}
+
+
+
+
 //TODO: MARKERS & POPUP
 function placeMarkerAndPopup(info, token, map) {
     geocode(info, token).then(function(coordinates) {
         let popup = new mapboxgl.Popup()
-            .setHTML(`<h2>reverse search results:</h2>
+            .setHTML(`<h2>Your location results:</h2>
 ${info}`);
         marker
             .setLngLat(coordinates);
             marker.addTo(map)
             .setPopup(popup);
         popup.addTo(map);
+        // popup.closeOnMove(true)
     });
 }
 //TODO: GEOCODING
@@ -67,10 +94,19 @@ let geoSearch = input1.value;
 
     geocode(geoSearch, MAPBOX_KEY).then(function(result) {
         console.log(result)
+        // map.flyTo({
+        //     center: [
+        //         result[0] + (Math.random() - 0.5) * 10,
+        //         result[1] + (Math.random() - 0.5) * 10
+        //     ],
+        //     essential: true // this animation is considered essential with respect to prefers-reduced-motion
+        // });
         map.setCenter(result);
         map.setZoom(16);
         coordsObj.lat = result[1];
         coordsObj.long = result[0];
+
+        placeMarkerAndPopup(geoSearch, MAPBOX_KEY, map);
         getMapboxWeather(coordsObj).then(mapWeatherData => {
             outputMapboxWeather(mapWeatherData)
             console.log(mapWeatherData);
@@ -107,11 +143,10 @@ function outputMapboxWeather(mapWeatherData){
            </p>
        </div>
        <div class="forecast-hilo flex-row">
-           <p class="forecast-lo">Lo: ${mapWeatherData.daily[i].temp.min}</p>
-           <p class="forecast-hi">Hi: ${mapWeatherData.daily[i].temp.max}</p>
+           <p class="forecast-lo">Lo: <span class="hilo-temp">${Math.round(mapWeatherData.daily[i].temp.min)}&#176;</span></p>
+           <p class="forecast-hi">Hi: <span class="hilo-temp">${Math.round(mapWeatherData.daily[i].temp.max)}&#176;</span></p>
        </div>
        <div class="description-wrapper flex-col">
-           <p class="description-title">Description:</p>
            <p class="description-output">${mapWeatherData.daily[i].weather[0].description}</p>
        </div>
        <div class="humidity-wrapper flex-row">

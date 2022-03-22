@@ -56,8 +56,8 @@ function outputOWM(dataArr) {
                     </p>
                 </div>
                 <div class="forecast-hilo flex-row">
-                    <p class="forecast-lo">Lo: <span class="hilo-temp">${dataArr.daily[i].temp.min}</span></p>
-                    <p class="forecast-hi">Hi: <span class="hilo-temp">${dataArr.daily[i].temp.max}</span></p>
+                    <p class="forecast-lo">Lo: <span class="hilo-temp">${Math.round(dataArr.daily[i].temp.min)}&#176;</span></p>
+                    <p class="forecast-hi">Hi: <span class="hilo-temp">${Math.round(dataArr.daily[i].temp.max)}&#176;</span></p>
                 </div>
                 <div class="description-wrapper flex-row">
                     

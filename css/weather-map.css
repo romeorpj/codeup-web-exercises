@@ -192,6 +192,7 @@ top: 60%;
     width: 45%;
 }
 .snap-scroll{
+    /*stop scroll from resting in the middle of elm*/
     scroll-snap-type: inline mandatory;
     scroll-padding-inline: 1rem;
 }
@@ -203,6 +204,10 @@ top: 60%;
             0 18.8px 19.2px rgba(0, 0, 0, 0.037),
             0 22px 40px rgba(0, 0, 0, 0.019);
     /*max-width: 200px;*/
+    transition: all 450ms ease-in-out;
+}
+.snap-scroll > *:hover{
+    transform: translateY(-5px);
 }
 .forecast-scroller{
     width: 100%;
@@ -275,7 +280,7 @@ background: rgba(236, 240, 241, 0.53);
     font-size: var(--font-size);
 }
 .hilo-temp{
-    color: var(--gray);
+    /*color: var(--gray);*/
     font-weight: 300;
     font-size: 1.8rem;
 }
