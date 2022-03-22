@@ -28,7 +28,9 @@ function setupMap(center) {
 
 
 // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl(),'bottom-right');
+    map.addControl(new mapboxgl.NavigationControl({
+        visualizePitch: true
+    }),'bottom-right');
 
 // ***TODO: REVERSE GEOCODING
     map.on('click', (e) => {
