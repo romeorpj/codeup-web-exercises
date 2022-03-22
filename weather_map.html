@@ -21,27 +21,34 @@
 <header>
     <div class="container">
         <h1>WeatherMappy</h1>
-        <div class="header__user-input-wrapper">
+        <div class="header__user-input-wrapper flex-row">
 <!--flex this out in case I want to add more elements-->
-            <div class="user-input-wrapper-elements">
+            <div class="user-input-wrapper-elements ">
                 <input type="search" name="input1" id="input1" placeholder="Enter Location">
                 <button type="submit" class="header-btn1"><i class="fa-solid fa-angle-right"></i></button>
             </div>
+            <div class="custom-select">
+                <select name="" id="map-selector">
+                    <option value="mapbox://styles/mapbox/streets-v11">Streets Map</option>
+                    <option value="mapbox://styles/mapbox/outdoors-v11">Outdoors Map</option>
+                    <option value="mapbox://styles/mapbox/light-v10">Light Map</option>
+                    <option value="mapbox://styles/mapbox/dark-v10">Dark Map</option>
+                    <option value="mapbox://styles/mapbox/satellite-v9">Satellite Map</option>
+                    <option value="mapbox://styles/mapbox/satellite-streets-v11">Satellite + Streets Map</option>
+                    <option value="mapbox://styles/mapbox/navigation-day-v1">Navigation Day Map</option>
+                    <option value="mapbox://styles/mapbox/navigation-night-v1">Navigation Night Map</option>
+                </select>
+                <span class="custom-arrow"></span>
+            </div>
         </div>
         <!--        TODO: BEGIN FORECAST SECTION-->
-        <section class="forecast-scroller snap-scroll">
+        <section class="forecast-scroller  snap-scroll">
         </section>
+<!--        <div class="hide-forecast-btn"></div>-->
     </div>
     <!-- END CONTAINER DIV-->
 </header>
-<!--<section id="map-stuff">-->
-<!--    &lt;!&ndash;        TODO: REVERSE GEOCODE BOTTOM POPUP&ndash;&gt;-->
-<!--    <div class="reverseGeoWrapper">-->
-<!--        <h2>Hi, you reverse searched for:</h2>-->
-<!--        <i class="fa-solid fa-circle-xmark"></i>-->
-<!--    </div>-->
 
-<!--</section>-->
 <!--        TODO: MAPBOX -->
 <div id='map'></div>
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>

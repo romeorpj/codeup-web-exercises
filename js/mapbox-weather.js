@@ -1,61 +1,53 @@
 "use strict"
 let input1 = document.querySelector("#input1");
 let btn1 = document.querySelector(".header-btn1");
-let mapStuffSection = document.querySelector("#map-stuff");
-let reverseCloseBtn = document.querySelector(".fa-circle-xmark");
-let reverseGeoWrapper1 = document.querySelector(".reverseGeoWrapper");
-let marker= new mapboxgl.Marker();
-// console.log(body)
-//global map for access by input1 event
+let marker = new mapboxgl.Marker();
 let map;
+let mapChoices = document.querySelector("#map-selector");
+
+//provides a simple way to update weather coords for both forward geocode and reverse
+let coordsObj = {
+    long: "",
+    lat: ""
+}
 
 
-function setupMap(center){
+function setupMap(center) {
 //    this function sets the starting details of the map
-mapboxgl.accessToken = MAPBOX_KEY;
-map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    // center coords are pulled from wather-map geolocation
-    center: center, // starting position [lng, lat]
-    zoom: 16, // starting zoom
-trackResize: true,
-})
+    mapboxgl.accessToken = MAPBOX_KEY;
+    map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: "mapbox://styles/mapbox/streets-v11", // style URL
+        // center coords are pulled from wather-map geolocation
+        center: center, // starting position [lng, lat]
+        zoom: 16, // starting zoom
+        trackResize: true,
+    })
 // Add zoom and rotation controls to the map.
     map.addControl(new mapboxgl.NavigationControl(),'bottom-right');
 
-    // markerInfo = {
-    //     address: "",
-    //     popupHTML: "<p>Remember the Alamo!</p>"
-    // };
-
-
-    // console.log()
-    // placeMarkerAndPopup(markerInfo, MAPBOX_KEY, map);
-
 // ***TODO: REVERSE GEOCODING
-    //Reverse Gecode onCLICK
-// language=HTML
     map.on('click', (e) => {
-        let coordinates = {lng:e.lngLat.lng, lat:e.lngLat.lat}
-        reverseGeocode(coordinates, MAPBOX_KEY).then((results)=>{
-            // reverseGeoWrapper1.append(`${results}`);
-
-
-            getMapboxWeather(coordinates.lat, coordinates.lng).then(mapWeatherData => {
+        // let coordinates = {lng:e.lngLat.lng, lat:e.lngLat.lat};
+        coordsObj.lat = e.lngLat.lat;
+        coordsObj.long = e.lngLat.lng;
+        // console.log(`this is e ${e}`)
+        // console.log(`this is lat ${coordsObj.lat}`)
+        // console.log(`this is long ${coordsObj.long}`)
+        reverseGeocode(coordsObj, MAPBOX_KEY).then((results) => {
+            console.log(`this is results ${results}`)
+            getMapboxWeather(coordsObj).then(mapWeatherData => {
                 outputMapboxWeather(mapWeatherData)
             }).catch(error => {
                 console.log(`This is probably somewhat kind of maybe not a good thing: ${error}`)
             })
-placeMarkerAndPopup(results, MAPBOX_KEY, map);
+            placeMarkerAndPopup(results, MAPBOX_KEY, map);
             console.log(`this is results reverse ${results}`)
         })
-        // console.log(e)
-        // console.log(e.lngLat.lng)
-        // console.log(`A click event has occurred at ${e.lngLat}`);
     });
 }
 //END MAP OBJECT
+
 //TODO: MARKERS & POPUP
 function placeMarkerAndPopup(info, token, map) {
     geocode(info, token).then(function(coordinates) {
@@ -74,10 +66,14 @@ btn1.addEventListener("click",(e)=>{
 let geoSearch = input1.value;
 
     geocode(geoSearch, MAPBOX_KEY).then(function(result) {
+        console.log(result)
         map.setCenter(result);
         map.setZoom(16);
-        getMapboxWeather(result).then(mapWeatherData => {
-        outputMapboxWeather(mapWeatherData)
+        coordsObj.lat = result[1];
+        coordsObj.long = result[0];
+        getMapboxWeather(coordsObj).then(mapWeatherData => {
+            outputMapboxWeather(mapWeatherData)
+            console.log(mapWeatherData);
         }).catch(error => {
             console.log(`This is probably somewhat kind of maybe not a good thing: ${error}`)
         })
@@ -86,11 +82,10 @@ let geoSearch = input1.value;
 });
 
 // TODO: getWeatherData calls the openweather API *** TO UPDATE THE FORWARD GEOCODE WEATHER
-async function getMapboxWeather(lat, long){
-
+async function getMapboxWeather(result) {
 
     // let [mapLong, mapLat] = result;
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&&units=imperial&exclude=current,hourly,minutely&appid=${OWM_KEY}`)
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${coordsObj.lat}&lon=${coordsObj.long}&&units=imperial&exclude=current,hourly,minutely&appid=${OWM_KEY}`)
     if (!response.ok) {
         new Error(`HTTP error! status: ${response.status}`)
     } else {
@@ -112,7 +107,7 @@ function outputMapboxWeather(mapWeatherData){
            </p>
        </div>
        <div class="forecast-hilo flex-row">
-           <p class="forecast-lo">Lo: ${mapWeatherData.daily[i].temp.min} /</p>
+           <p class="forecast-lo">Lo: ${mapWeatherData.daily[i].temp.min}</p>
            <p class="forecast-hi">Hi: ${mapWeatherData.daily[i].temp.max}</p>
        </div>
        <div class="description-wrapper flex-col">
@@ -130,4 +125,18 @@ function outputMapboxWeather(mapWeatherData){
          </div>
      `
     }
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("hide-forecast-btn");
+    newDiv.innerHTML = `<i class="fa-solid fa-caret-left"></i>`
+    forecastScroller.appendChild(newDiv);
+
+    document.querySelector(".hide-forecast-btn").addEventListener("click", () => {
+        // console.log("hide is working")
+        forecastScroller.classList.toggle("active")
+    })
 }
+
+mapChoices.addEventListener("change", () => {
+    map.setStyle(mapChoices.value);
+
+})

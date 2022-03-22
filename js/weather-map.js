@@ -1,6 +1,6 @@
 "use strict"
 // ***GLOBAL VARIABLES***
-// const headerBtn1 = document.querySelector(".header-btn1");
+
 let center;
 let lat;
 let long;
@@ -28,7 +28,6 @@ function successLocation(position) {
     setupMap([long,lat]);
     getWeatherData(lat, long)
         .then((dataArr) => {
-
             outputOWM(dataArr)
             console.log(new Date(dataArr.daily[2].dt * 1000).toLocaleString('en-us', {weekday: 'short'}))
             //  console.log(weatherArrSwitcher.daily[1].weather[0].icon)
@@ -46,13 +45,6 @@ const errorCallback = (e) => {
 
 // language=HTML
 function outputOWM(dataArr) {
-// if(forecastScroller){
-//     forecastScroller.innerhtml="";
-// }else{
-//     console.log(`this is weatherArrSwitcher html call ${dataArr.daily[0]}`)
-//     console.log(dataArr.daily[i].dt)
-
-let daysOfWeek = ["Sun", "Mon","Tue", "Wed","Thur", "Fri","Sat"]
     for (let i = 0; i <= 6; i++) {
         forecastScroller.innerHTML += `
             <div class="forecast flex-col">
@@ -82,7 +74,15 @@ let daysOfWeek = ["Sun", "Mon","Tue", "Wed","Thur", "Fri","Sat"]
             </div>
         `
     }
+    let newDiv = document.createElement("div");
+    newDiv.classList.add("hide-forecast-btn");
+    newDiv.innerHTML=`<i class="fa-solid fa-caret-left"></i>`
+    forecastScroller.appendChild(newDiv);
 
+    document.querySelector(".hide-forecast-btn").addEventListener("click", ()=>{
+        // console.log("hide is working")
+        forecastScroller.classList.toggle("active")
+    })
 }
 
 function getCoordinates(){
@@ -92,9 +92,8 @@ getCoordinates()
 
 // ***EVENT LISTENERS***
 //TODO: click button to return openweather map data inside of the successcallback function
-// headerBtn1.addEventListener("click",()=>{
-//     //runs the GeoLocation API
-//
-//
-// })
+
+
+
+
 
